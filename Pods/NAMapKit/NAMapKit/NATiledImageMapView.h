@@ -6,13 +6,13 @@
 //  Copyright (c) 2010-14 neilang.com. All rights reserved.
 //
 
-#import "NAMapView.h"
+#import "NAPinAnnotationMapView.h"
 #import <ARTiledImageView/ARTiledImageViewDataSource.h>
 
 /**
  *  A tiled image map.
  */
-@interface NATiledImageMapView : NAMapView
+@interface NATiledImageMapView : NAPinAnnotationMapView
 
 - (id)initWithFrame:(CGRect)frame tiledImageDataSource:(NSObject <ARTiledImageViewDataSource> *)dataSource;
 

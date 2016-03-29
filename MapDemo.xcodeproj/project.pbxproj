@@ -13,6 +13,7 @@
 		6502F1D61CAA256D00CB1512 /* hand_drawing_map_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 6502F1D51CAA256D00CB1512 /* hand_drawing_map_list.json */; };
 		6502F1DA1CAA29E400CB1512 /* FileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6502F1D91CAA29E400CB1512 /* FileUtil.m */; };
 		6502F1DD1CAA29F100CB1512 /* SysUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6502F1DC1CAA29F100CB1512 /* SysUtil.m */; };
+		65110EF31CAA68280046FEC5 /* WebTileMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65110EF21CAA68280046FEC5 /* WebTileMapViewController.m */; };
 		652E8B371C856FE40003C7D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 652E8B361C856FE40003C7D9 /* main.m */; };
 		652E8B3A1C856FE40003C7D9 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 652E8B391C856FE40003C7D9 /* AppDelegate.mm */; };
 		652E8B401C856FE40003C7D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 652E8B3E1C856FE40003C7D9 /* Main.storyboard */; };
@@ -47,6 +48,8 @@
 		6502F1D91CAA29E400CB1512 /* FileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtil.m; sourceTree = "<group>"; };
 		6502F1DB1CAA29F100CB1512 /* SysUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysUtil.h; sourceTree = "<group>"; };
 		6502F1DC1CAA29F100CB1512 /* SysUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysUtil.m; sourceTree = "<group>"; };
+		65110EF11CAA68280046FEC5 /* WebTileMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebTileMapViewController.h; sourceTree = "<group>"; };
+		65110EF21CAA68280046FEC5 /* WebTileMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebTileMapViewController.m; sourceTree = "<group>"; };
 		652E8B321C856FE40003C7D9 /* MapDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		652E8B361C856FE40003C7D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		652E8B381C856FE40003C7D9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -240,6 +243,8 @@
 				65D8347B1CAA52410032B6D1 /* MapViewController.m */,
 				65D8347D1CAA52900032B6D1 /* TileMapViewController.h */,
 				65D8347E1CAA52900032B6D1 /* TileMapViewController.m */,
+				65110EF11CAA68280046FEC5 /* WebTileMapViewController.h */,
+				65110EF21CAA68280046FEC5 /* WebTileMapViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				65D8347F1CAA52900032B6D1 /* TileMapViewController.m in Sources */,
 				6502F1CD1CAA22E000CB1512 /* ISSJSONModel.m in Sources */,
 				65D8347C1CAA52410032B6D1 /* MapViewController.m in Sources */,
+				65110EF31CAA68280046FEC5 /* WebTileMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
