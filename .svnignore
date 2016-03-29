@@ -6,7 +6,8 @@
 build/
 DerivedData/
 .DS_Store
-.svn
+.git
+.gitignore
 
 ## Various settings
 *.pbxuser
