@@ -1,0 +1,22 @@
+PODS:
+  - ARTiledImageView (1.1.1):
+    - SDWebImage
+  - JSONModel (1.2.0)
+  - NAMapKit (3.2.0):
+    - ARTiledImageView
+    - SDWebImage
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
+
+DEPENDENCIES:
+  - JSONModel (~> 1.2.0)
+  - NAMapKit (~> 3.2.0)
+
+SPEC CHECKSUMS:
+  ARTiledImageView: 8c6fd11d9e8459a853d94394adea3a5e8c9329ba
+  JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
+  NAMapKit: bdcb666fa84122eed344661b132e1d93dbafac71
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+
+COCOAPODS: 0.39.0
