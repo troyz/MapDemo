@@ -7,7 +7,6 @@
 //
 
 #import "ISSJSONModel.h"
-#import <UIKit/UIKit.h>
 
 @protocol MapLocationItemModel <NSObject>
 @end
@@ -16,6 +15,8 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) CGFloat lat;
 @property (nonatomic, assign) CGFloat lng;
+@property (nonatomic, copy) NSString *desc;
+@property (nonatomic, assign) ISSLocationType locType;
 @end
 
 @interface MapItemModel : ISSJSONModel

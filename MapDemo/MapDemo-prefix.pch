@@ -1,0 +1,27 @@
+//
+//  MapDemo-prefix.pch
+//  MapDemo
+//
+//  Created by xdzhangm on 16/3/30.
+//  Copyright © 2016年 isoftstone. All rights reserved.
+//
+
+#ifndef MapDemo_prefix_pch
+#define MapDemo_prefix_pch
+
+#import <UIKit/UIKit.h>
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+// 景区列表排序类型
+typedef NS_ENUM(NSInteger, ISSLocationType)
+{
+    LOC_TYPE_TICKET = 0,    // 景区
+    LOC_TYPE_BAR    = 1,    // 酒吧
+    LOC_TYPE_DEPOT  = 2,    // 车站
+    LOC_TYPE_MUSEUM = 3,    // 博物馆
+    LOC_TYPE_TOILET = 4     // 厕所
+};
+
+#endif /* MapDemo_prefix_pch */

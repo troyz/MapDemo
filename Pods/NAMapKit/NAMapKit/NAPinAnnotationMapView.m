@@ -71,7 +71,7 @@ const CGFloat NAMapViewAnnotationCalloutAnimationDuration = 0.1f;
 
     self.calloutView.annotation = annotation;
 
-    [self centerOnPoint:annotation.point animated:animated];
+//    [self centerOnPoint:annotation.point animated:animated];
 
     CGFloat animationDuration = animated ? NAMapViewAnnotationCalloutAnimationDuration : 0.0f;
 

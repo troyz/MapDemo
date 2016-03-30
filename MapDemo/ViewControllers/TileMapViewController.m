@@ -8,7 +8,7 @@
 
 #import "TileMapViewController.h"
 #import "NATiledImageMapView.h"
-#import "NAPinAnnotation.h"
+#import "ISSPinAnnotation.h"
 #import "MapLocationItemModel.h"
 #import "FileUtil.h"
 #import <ARTiledImageView/ARLocalTiledImageDataSource.h>
@@ -55,9 +55,8 @@
     for(NSInteger i = 0; i < mapItem.locationList.count; i++)
     {
         MapLocationItemModel *locItem = mapItem.locationList[i];
-        NAPinAnnotation *melbourne = [NAPinAnnotation annotationWithPoint:[self locationCoordToCgPoint:CLLocationCoordinate2DMake(locItem.lat, locItem.lng)]];
+        ISSPinAnnotation *melbourne = [ISSPinAnnotation annotationWithPoint:[self locationCoordToCgPoint:CLLocationCoordinate2DMake(locItem.lat, locItem.lng)]];
         melbourne.title = locItem.name;
-        melbourne.subtitle = @"I have a subtitle 野三坡景区商业街 I have a subtitle 野三坡景区商业街 I have a subtitle 野三坡景区商业街 I have a subtitle 野三坡景区商业街 I have a subtitle 野三坡景区商业街 I have a subtitle 野三坡景区商业街 ";
         melbourne.color = i % 3;
         [mapView addAnnotation:melbourne animated:YES];
     }
