@@ -24,4 +24,9 @@ typedef NS_ENUM(NSInteger, ISSLocationType)
     LOC_TYPE_TOILET = 4     // 厕所
 };
 
+#define kScreenWidth                    [[UIScreen mainScreen] bounds].size.width
+#define kScreenHeight                   [[UIScreen mainScreen] bounds].size.height
+#define RGBAColor(r,g,b,a)              [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+#define RGBColor(r,g,b)                 [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(1)]
+
 #endif /* MapDemo_prefix_pch */

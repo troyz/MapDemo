@@ -11,5 +11,5 @@
 
 @interface ISSPinAnnotation : NAPinAnnotation
 @property (nonatomic, assign) ISSLocationType locType;
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *imgPath;
 @end

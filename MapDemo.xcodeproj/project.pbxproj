@@ -44,6 +44,11 @@
 		65C0080D1CABAA34002983D6 /* db_poi_toilet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C008061CABAA34002983D6 /* db_poi_toilet@2x.png */; };
 		65C008101CABACAC002983D6 /* ISSPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C0080F1CABACAC002983D6 /* ISSPinAnnotation.m */; };
 		65C008131CABAD0E002983D6 /* ISSPinAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C008121CABAD0E002983D6 /* ISSPinAnnotationView.m */; };
+		65C0081A1CABB596002983D6 /* ISSPinAnnotationMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C008191CABB596002983D6 /* ISSPinAnnotationMapView.m */; };
+		65C0081D1CABB5F0002983D6 /* ISSTiledImageMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C0081C1CABB5F0002983D6 /* ISSTiledImageMapView.m */; };
+		65C008201CABB697002983D6 /* ISSPinAnnotationCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C0081F1CABB697002983D6 /* ISSPinAnnotationCallOutView.m */; };
+		65C008221CABD458002983D6 /* temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C008211CABD458002983D6 /* temp.png */; };
+		65C008251CABD4D5002983D6 /* UITool.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C008241CABD4D5002983D6 /* UITool.m */; };
 		65D8347C1CAA52410032B6D1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D8347B1CAA52410032B6D1 /* MapViewController.m */; };
 		65D8347F1CAA52900032B6D1 /* TileMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D8347E1CAA52900032B6D1 /* TileMapViewController.m */; };
 		65D834811CAA543B0032B6D1 /* Maps in Resources */ = {isa = PBXBuildFile; fileRef = 65D834801CAA543B0032B6D1 /* Maps */; };
@@ -100,6 +105,15 @@
 		65C008111CABAD0E002983D6 /* ISSPinAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSPinAnnotationView.h; sourceTree = "<group>"; };
 		65C008121CABAD0E002983D6 /* ISSPinAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSPinAnnotationView.m; sourceTree = "<group>"; };
 		65C008141CABAD75002983D6 /* MapDemo-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MapDemo-prefix.pch"; sourceTree = "<group>"; };
+		65C008181CABB596002983D6 /* ISSPinAnnotationMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSPinAnnotationMapView.h; sourceTree = "<group>"; };
+		65C008191CABB596002983D6 /* ISSPinAnnotationMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSPinAnnotationMapView.m; sourceTree = "<group>"; };
+		65C0081B1CABB5F0002983D6 /* ISSTiledImageMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSTiledImageMapView.h; sourceTree = "<group>"; };
+		65C0081C1CABB5F0002983D6 /* ISSTiledImageMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSTiledImageMapView.m; sourceTree = "<group>"; };
+		65C0081E1CABB697002983D6 /* ISSPinAnnotationCallOutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSPinAnnotationCallOutView.h; sourceTree = "<group>"; };
+		65C0081F1CABB697002983D6 /* ISSPinAnnotationCallOutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSPinAnnotationCallOutView.m; sourceTree = "<group>"; };
+		65C008211CABD458002983D6 /* temp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = temp.png; sourceTree = "<group>"; };
+		65C008231CABD4D5002983D6 /* UITool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITool.h; sourceTree = "<group>"; };
+		65C008241CABD4D5002983D6 /* UITool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITool.m; sourceTree = "<group>"; };
 		65D8347A1CAA52410032B6D1 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		65D8347B1CAA52410032B6D1 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		65D8347D1CAA52900032B6D1 /* TileMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapViewController.h; sourceTree = "<group>"; };
@@ -183,6 +197,8 @@
 				6502F1D91CAA29E400CB1512 /* FileUtil.m */,
 				6502F1DB1CAA29F100CB1512 /* SysUtil.h */,
 				6502F1DC1CAA29F100CB1512 /* SysUtil.m */,
+				65C008231CABD4D5002983D6 /* UITool.h */,
+				65C008241CABD4D5002983D6 /* UITool.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -265,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				6502F1D21CAA24D200CB1512 /* bailixia.jpg */,
+				65C008211CABD458002983D6 /* temp.png */,
 				65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */,
 				65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */,
 				65C007DE1CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png */,
@@ -304,6 +321,12 @@
 				65C0080F1CABACAC002983D6 /* ISSPinAnnotation.m */,
 				65C008111CABAD0E002983D6 /* ISSPinAnnotationView.h */,
 				65C008121CABAD0E002983D6 /* ISSPinAnnotationView.m */,
+				65C008181CABB596002983D6 /* ISSPinAnnotationMapView.h */,
+				65C008191CABB596002983D6 /* ISSPinAnnotationMapView.m */,
+				65C0081B1CABB5F0002983D6 /* ISSTiledImageMapView.h */,
+				65C0081C1CABB5F0002983D6 /* ISSTiledImageMapView.m */,
+				65C0081E1CABB697002983D6 /* ISSPinAnnotationCallOutView.h */,
+				65C0081F1CABB697002983D6 /* ISSPinAnnotationCallOutView.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -399,6 +422,7 @@
 				65C007E81CAB6D8F002983D6 /* icon_paopao_middle_right@2x.png in Resources */,
 				65C0080A1CABAA34002983D6 /* db_poi_depot@2x.png in Resources */,
 				65C0080D1CABAA34002983D6 /* db_poi_toilet@2x.png in Resources */,
+				65C008221CABD458002983D6 /* temp.png in Resources */,
 				65C008091CABAA34002983D6 /* db_poi_bar@2x.png in Resources */,
 				65C0080C1CABAA34002983D6 /* db_poi_ticket@2x.png in Resources */,
 				65C0080B1CABAA34002983D6 /* db_poi_museum@2x.png in Resources */,
@@ -466,14 +490,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C008201CABB697002983D6 /* ISSPinAnnotationCallOutView.m in Sources */,
 				652E8B3A1C856FE40003C7D9 /* AppDelegate.mm in Sources */,
 				65C008131CABAD0E002983D6 /* ISSPinAnnotationView.m in Sources */,
+				65C0081D1CABB5F0002983D6 /* ISSTiledImageMapView.m in Sources */,
+				65C0081A1CABB596002983D6 /* ISSPinAnnotationMapView.m in Sources */,
 				652E8B371C856FE40003C7D9 /* main.m in Sources */,
 				6502F1DA1CAA29E400CB1512 /* FileUtil.m in Sources */,
 				6502F1D11CAA230900CB1512 /* MapLocationItemModel.m in Sources */,
 				6502F1DD1CAA29F100CB1512 /* SysUtil.m in Sources */,
 				65D8347F1CAA52900032B6D1 /* TileMapViewController.m in Sources */,
 				6502F1CD1CAA22E000CB1512 /* ISSJSONModel.m in Sources */,
+				65C008251CABD4D5002983D6 /* UITool.m in Sources */,
 				65D8347C1CAA52410032B6D1 /* MapViewController.m in Sources */,
 				65C008101CABACAC002983D6 /* ISSPinAnnotation.m in Sources */,
 				65110EF31CAA68280046FEC5 /* WebTileMapViewController.m in Sources */,

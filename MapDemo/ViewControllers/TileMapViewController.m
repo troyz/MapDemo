@@ -7,18 +7,18 @@
 //
 
 #import "TileMapViewController.h"
-#import "NATiledImageMapView.h"
+#import "ISSTiledImageMapView.h"
 #import "ISSPinAnnotation.h"
 #import "MapLocationItemModel.h"
 #import "FileUtil.h"
 #import <ARTiledImageView/ARLocalTiledImageDataSource.h>
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
 
-@interface TileMapViewController ()
+@interface TileMapViewController ()<ISSPinAnnotationMapViewDelegate>
 {
     BMKMapPoint leftTopCoor;
     MapItemModel *mapItem;
-    NATiledImageMapView *mapView;
+    ISSTiledImageMapView *mapView;
     ARLocalTiledImageDataSource *dataSource;
 }
 @end
@@ -43,7 +43,8 @@
     dataSource.tileFormat = @"jpg";
     dataSource.tileBasePath = [NSString stringWithFormat:@"%@/Maps/bailixia", [NSBundle mainBundle].resourcePath];
     
-    mapView = [[NATiledImageMapView alloc] initWithFrame:self.view.bounds tiledImageDataSource:dataSource];
+    mapView = [[ISSTiledImageMapView alloc] initWithFrame:self.view.bounds tiledImageDataSource:dataSource];
+    mapView.mapDelegate = self;
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 //    mapView.displayTileBorders = YES;
 
@@ -80,6 +81,14 @@
     mapPoint.x = point.x / mapItem.zoomRate + leftTopCoor.x;
     mapPoint.y = point.y / mapItem.zoomRate + leftTopCoor.y;
     return BMKCoordinateForMapPoint(mapPoint);
+}
+
+- (void)playerButtonTapped:(NAPinAnnotation *)annotation
+{
+    if(![annotation isKindOfClass:[ISSPinAnnotation class]])
+    {
+        return;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
