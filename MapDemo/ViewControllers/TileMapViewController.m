@@ -8,7 +8,6 @@
 
 #import "TileMapViewController.h"
 #import "NATiledImageMapView.h"
-#import "NAPinAnnotationMapView.h"
 #import "NAPinAnnotation.h"
 #import "MapLocationItemModel.h"
 #import "FileUtil.h"
@@ -53,13 +52,14 @@
     
     [self.view addSubview:mapView];
     
-    for(MapLocationItemModel *locItem in mapItem.locationList)
+    for(NSInteger i = 0; i < mapItem.locationList.count; i++)
     {
+        MapLocationItemModel *locItem = mapItem.locationList[i];
         NAPinAnnotation *melbourne = [NAPinAnnotation annotationWithPoint:[self locationCoordToCgPoint:CLLocationCoordinate2DMake(locItem.lat, locItem.lng)]];
         melbourne.title = locItem.name;
-        melbourne.subtitle = @"I have a subtitle";
-        melbourne.color = NAPinColorRed;
-        [mapView addAnnotation:melbourne animated:NO];
+        melbourne.subtitle = @"I have a subtitle 野三坡景区商业街 I have a subtitle 野三坡景区商业街 I have a subtitle 野三坡景区商业街 I have a subtitle 野三坡景区商业街 I have a subtitle 野三坡景区商业街 I have a subtitle 野三坡景区商业街 ";
+        melbourne.color = i % 3;
+        [mapView addAnnotation:melbourne animated:YES];
     }
 }
 

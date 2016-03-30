@@ -8,10 +8,10 @@
 
 #import "NAPinAnnotationView.h"
 
-const CGFloat NAMapViewAnnotationPinWidth = 32.0f;
-const CGFloat NAMapViewAnnotationPinHeight = 39.0f;
-const CGFloat NAMapViewAnnotationPinPointX = 8.0f;
-const CGFloat NAMapViewAnnotationPinPointY = 35.0f;
+const CGFloat NAMapViewAnnotationPinWidth = 30.0f;
+const CGFloat NAMapViewAnnotationPinHeight = 30.0f;
+const CGFloat NAMapViewAnnotationPinPointX = 15.0f;
+const CGFloat NAMapViewAnnotationPinPointY = 28.0f;
 
 @interface NAPinAnnotationView()
 @property (nonatomic, weak) NAMapView *mapView;
@@ -47,9 +47,9 @@ const CGFloat NAMapViewAnnotationPinPointY = 35.0f;
             break;
     }
 
-    if (animating) {
-        pinImageName = [NSString stringWithFormat:@"%@_floating", pinImageName];
-    }
+//    if (animating) {
+//        pinImageName = [NSString stringWithFormat:@"%@_floating", pinImageName];
+//    }
 
     pinImageName = [NSString stringWithFormat:@"/%@.png", pinImageName];
 

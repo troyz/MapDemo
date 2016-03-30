@@ -155,7 +155,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00FC7A062AF6A20923A49E66F8FF5B40 /* pin_red_floating.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = pin_red_floating.png; path = NAMapKit/pin_red_floating.png; sourceTree = "<group>"; };
 		011FEC3EC15D7B1BED89F049E73BDC57 /* UIButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WebCache.h"; path = "SDWebImage/UIButton+WebCache.h"; sourceTree = "<group>"; };
 		044ACC5619E4FE7700177BAAB6EE147A /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderOperation.h; path = SDWebImage/SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
 		056E1B3D8D5AF38938D0515C7E6F61C3 /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
@@ -168,14 +167,12 @@
 		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
 		12A60992B261C97E5138204AAE93ED4E /* ARWebTiledImageDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ARWebTiledImageDataSource.m; path = Classes/ARWebTiledImageDataSource.m; sourceTree = "<group>"; };
 		131275DA85AD1839499BE4E3D6988901 /* ARTile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ARTile.h; path = Classes/ARTile.h; sourceTree = "<group>"; };
-		134053C18A6DB9B8E319F3A396616A5B /* pin_green_floating.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = pin_green_floating.png; path = NAMapKit/pin_green_floating.png; sourceTree = "<group>"; };
 		13DA63211348DA460FB90F1E4030B2EB /* JSONValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONValueTransformer.m; path = JSONModel/JSONModelTransformations/JSONValueTransformer.m; sourceTree = "<group>"; };
 		15BBD404F076539CA4D65A7CC733FD8E /* JSONModelClassProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelClassProperty.h; path = JSONModel/JSONModel/JSONModelClassProperty.h; sourceTree = "<group>"; };
 		17256BBEBC64C52AC77C0D6698CD9792 /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
 		18C94E024D114B9256AE51EC3E1B613E /* ARTiledImageViewDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ARTiledImageViewDataSource.h; path = Classes/ARTiledImageViewDataSource.h; sourceTree = "<group>"; };
 		224B6347E8EB64DD91F8DC3FC3BBBD0A /* callout_right@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "callout_right@2x.png"; path = "NAMapKit/callout_right@2x.png"; sourceTree = "<group>"; };
 		2314D746CCF647D90D0DB13029A27FCA /* ARLocalTiledImageDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ARLocalTiledImageDataSource.h; path = Classes/ARLocalTiledImageDataSource.h; sourceTree = "<group>"; };
-		254025D3FDBE36322C8EE3661937AF15 /* pin_red@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "pin_red@2x.png"; path = "NAMapKit/pin_red@2x.png"; sourceTree = "<group>"; };
 		255EA34027FF32764C7FDF6E8803E779 /* JSONModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModel.h; path = JSONModel/JSONModel/JSONModel.h; sourceTree = "<group>"; };
 		25F8ABDD1532A296D8F95098E2E0A972 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		268131C599DBE8B07B6782E8A9B9F32D /* JSONModelError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelError.h; path = JSONModel/JSONModel/JSONModelError.h; sourceTree = "<group>"; };
@@ -183,17 +180,13 @@
 		27F3C0B6C0594EE1A9870DF8DDE6AF62 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
 		2D0AF8CDDE16C781A9468ECA487F4622 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		2E89A007D6A68D2C28F75EBAC93D5635 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDecoder.h; path = SDWebImage/SDWebImageDecoder.h; sourceTree = "<group>"; };
-		2F785E0F6B1D5557ABA147C9561900DE /* pin_purple_floating@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "pin_purple_floating@2x.png"; path = "NAMapKit/pin_purple_floating@2x.png"; sourceTree = "<group>"; };
 		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3AC8A9CDF659CBBCA1320C8046434793 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		3E62DC8FD7A886B7FF77956E646A3D5C /* pin_green_floating@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "pin_green_floating@2x.png"; path = "NAMapKit/pin_green_floating@2x.png"; sourceTree = "<group>"; };
 		3F9214DCDB4EE86C37B689C148676B11 /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
 		4266B1F471EE1CB3FC144ED366669565 /* NAMapView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NAMapView.m; path = NAMapKit/NAMapView.m; sourceTree = "<group>"; };
 		4288C0C9BA102605FE08C23C1C826380 /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
 		42D793298D66D4CE8AD2FAC15B9D6AB9 /* NAPinAnnotationCallOutView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NAPinAnnotationCallOutView.h; path = NAMapKit/NAPinAnnotationCallOutView.h; sourceTree = "<group>"; };
 		47920457B468DB51A2F6D95AF0EA27EB /* JSONKeyMapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONKeyMapper.m; path = JSONModel/JSONModelTransformations/JSONKeyMapper.m; sourceTree = "<group>"; };
-		4BA9C060C484A85E5BE4F031361629A1 /* pin_purple.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = pin_purple.png; path = NAMapKit/pin_purple.png; sourceTree = "<group>"; };
-		4D66A496DDF1473149C839F012DA5C87 /* pin_green.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = pin_green.png; path = NAMapKit/pin_green.png; sourceTree = "<group>"; };
 		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
 		510DE515441E859CD7790A17F77BEB65 /* callout_left@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "callout_left@2x.png"; path = "NAMapKit/callout_left@2x.png"; sourceTree = "<group>"; };
 		517B5B9B06845E39028F819BCABF32EE /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
@@ -203,8 +196,10 @@
 		5A82AC1D1C078AF3C13B705D9A2814B9 /* NAAnnotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NAAnnotation.m; path = NAMapKit/NAAnnotation.m; sourceTree = "<group>"; };
 		5DA1BF87C022374B69437DA6A0B84814 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		5F59EA29823315FD54FC46A130C75F9B /* NAPinAnnotationView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NAPinAnnotationView.m; path = NAMapKit/NAPinAnnotationView.m; sourceTree = "<group>"; };
-		60B7625DB3D60A07DED1478010DA04AB /* pin_purple@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "pin_purple@2x.png"; path = "NAMapKit/pin_purple@2x.png"; sourceTree = "<group>"; };
 		62F344A77C7C22146F2F11B83D4D0E08 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
+		65C007FD1CAB79C3002983D6 /* pin_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin_green@2x.png"; path = "NAMapKit/pin_green@2x.png"; sourceTree = "<group>"; };
+		65C007FE1CAB79C3002983D6 /* pin_purple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin_purple@2x.png"; path = "NAMapKit/pin_purple@2x.png"; sourceTree = "<group>"; };
+		65C007FF1CAB79C3002983D6 /* pin_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pin_red@2x.png"; path = "NAMapKit/pin_red@2x.png"; sourceTree = "<group>"; };
 		6643A8E732D09E54C0B6E5EFA123B116 /* ARTiledImageView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ARTiledImageView.xcconfig; sourceTree = "<group>"; };
 		66BA5E1EE734B731C4A76A2F44D3B9A4 /* JSONValueTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONValueTransformer.h; path = JSONModel/JSONModelTransformations/JSONValueTransformer.h; sourceTree = "<group>"; };
 		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
@@ -219,7 +214,6 @@
 		8244546898B2C272FB79F8F59F0972CE /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		84327D0FFB43E67026F52B54ED366490 /* NAPinAnnotationMapView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NAPinAnnotationMapView.h; path = NAMapKit/NAPinAnnotationMapView.h; sourceTree = "<group>"; };
 		88C0B650546814D265B000D3DE66E668 /* JSONModel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JSONModel-dummy.m"; sourceTree = "<group>"; };
-		8EC690EEF72076E31F7784C132F774F2 /* pin_green@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "pin_green@2x.png"; path = "NAMapKit/pin_green@2x.png"; sourceTree = "<group>"; };
 		8F4A8B2080E0F81BBFBF0ABDC722EDC0 /* ARTile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ARTile.m; path = Classes/ARTile.m; sourceTree = "<group>"; };
 		8F86DF7622DB93D93A3362705F8F43D5 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDecoder.m; path = SDWebImage/SDWebImageDecoder.m; sourceTree = "<group>"; };
 		9007DBCEFEC00F5988F90496CB225440 /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/UIButton+WebCache.m"; sourceTree = "<group>"; };
@@ -236,7 +230,6 @@
 		A8FA6FD378A3F81A785D331D6B629FB6 /* JSONAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONAPI.h; path = JSONModel/JSONModelNetworking/JSONAPI.h; sourceTree = "<group>"; };
 		AA9EA59C18B4372EBDA8CFF708CDE1C2 /* JSONModelArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelArray.h; path = JSONModel/JSONModel/JSONModelArray.h; sourceTree = "<group>"; };
 		AAEC4FAF77EEB317BEE7B3118FF18109 /* NAAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NAAnnotation.h; path = NAMapKit/NAAnnotation.h; sourceTree = "<group>"; };
-		B090397E959E1221ABF649050B20480C /* pin_red.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = pin_red.png; path = NAMapKit/pin_red.png; sourceTree = "<group>"; };
 		B0DA84E7822A6A350976A9A72C01770C /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
 		B208B3AC490D8ABA93C5645E24C363AF /* ARTiledImageScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ARTiledImageScrollView.h; path = Classes/ARTiledImageScrollView.h; sourceTree = "<group>"; };
 		B22B3484A80EA3F66A835F1449C17A92 /* NADotAnnotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NADotAnnotation.m; path = NAMapKit/NADotAnnotation.m; sourceTree = "<group>"; };
@@ -257,7 +250,6 @@
 		D3FB0E268417FFEE2F994528105E74FD /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		D839E5DF34778382A232D36BA2AC619C /* callout_anchor.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = callout_anchor.png; path = NAMapKit/callout_anchor.png; sourceTree = "<group>"; };
 		DA9B7D6E1F7976A66CD6A3367E5D89BD /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
-		DF59C713E06A2F19E6A096FE1E9028E8 /* pin_red_floating@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "pin_red_floating@2x.png"; path = "NAMapKit/pin_red_floating@2x.png"; sourceTree = "<group>"; };
 		E27E350B060373BE8942106260BB0608 /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
 		E28A1BB2DCBC979F38458E7BC4416B57 /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
 		E3269F5DA85B7BE3430F89E34CD59B00 /* NAMapViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NAMapViewDelegate.h; path = NAMapKit/NAMapViewDelegate.h; sourceTree = "<group>"; };
@@ -268,7 +260,6 @@
 		E9147195251E0E11AD9BEC4D2227EA9B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
 		EA2B78482645FC8B016C951597C59995 /* ARTiledImageView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ARTiledImageView-dummy.m"; sourceTree = "<group>"; };
 		EC9DAA103756A01F1F0586126EE7738F /* JSONModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JSONModel.xcconfig; sourceTree = "<group>"; };
-		ED4234B6F094FFDA576926D173A9C7CB /* pin_purple_floating.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = pin_purple_floating.png; path = NAMapKit/pin_purple_floating.png; sourceTree = "<group>"; };
 		F05553B381556E93B8864B7CEB35A3E5 /* NAPinAnnotationMapView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NAPinAnnotationMapView.m; path = NAMapKit/NAPinAnnotationMapView.m; sourceTree = "<group>"; };
 		F18C11A0531DC38CEB4A726AA9AED2B3 /* ARTiledImageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ARTiledImageView.m; path = Classes/ARTiledImageView.m; sourceTree = "<group>"; };
 		F1F20C406AD7220998F7021AE003A535 /* NATiledImageMapView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NATiledImageMapView.h; path = NAMapKit/NATiledImageMapView.h; sourceTree = "<group>"; };
@@ -564,6 +555,9 @@
 		D8E137C025129823FEA3335F522B031D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				65C007FD1CAB79C3002983D6 /* pin_green@2x.png */,
+				65C007FE1CAB79C3002983D6 /* pin_purple@2x.png */,
+				65C007FF1CAB79C3002983D6 /* pin_red@2x.png */,
 				D839E5DF34778382A232D36BA2AC619C /* callout_anchor.png */,
 				F692F8033430406F5C8A55D64D0F9E03 /* callout_anchor@2x.png */,
 				E46FBA1DA397AEE8E7427386EEFB272F /* callout_bg.png */,
@@ -572,18 +566,6 @@
 				510DE515441E859CD7790A17F77BEB65 /* callout_left@2x.png */,
 				7FEB23A2D182056278ED20F85D305DDA /* callout_right.png */,
 				224B6347E8EB64DD91F8DC3FC3BBBD0A /* callout_right@2x.png */,
-				4D66A496DDF1473149C839F012DA5C87 /* pin_green.png */,
-				8EC690EEF72076E31F7784C132F774F2 /* pin_green@2x.png */,
-				134053C18A6DB9B8E319F3A396616A5B /* pin_green_floating.png */,
-				3E62DC8FD7A886B7FF77956E646A3D5C /* pin_green_floating@2x.png */,
-				4BA9C060C484A85E5BE4F031361629A1 /* pin_purple.png */,
-				60B7625DB3D60A07DED1478010DA04AB /* pin_purple@2x.png */,
-				ED4234B6F094FFDA576926D173A9C7CB /* pin_purple_floating.png */,
-				2F785E0F6B1D5557ABA147C9561900DE /* pin_purple_floating@2x.png */,
-				B090397E959E1221ABF649050B20480C /* pin_red.png */,
-				254025D3FDBE36322C8EE3661937AF15 /* pin_red@2x.png */,
-				00FC7A062AF6A20923A49E66F8FF5B40 /* pin_red_floating.png */,
-				DF59C713E06A2F19E6A096FE1E9028E8 /* pin_red_floating@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

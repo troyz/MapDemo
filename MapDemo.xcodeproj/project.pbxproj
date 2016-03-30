@@ -30,6 +30,14 @@
 		652E8B651C8572030003C7D9 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 652E8B641C8572030003C7D9 /* libsqlite3.0.tbd */; };
 		652E8B671C85720F0003C7D9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652E8B661C85720F0003C7D9 /* CoreTelephony.framework */; };
 		652E8B691C8572150003C7D9 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 652E8B681C8572150003C7D9 /* libstdc++.6.0.9.tbd */; };
+		65C007E41CAB6D8F002983D6 /* icon_center_point@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */; };
+		65C007E51CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */; };
+		65C007E61CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DE1CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png */; };
+		65C007E71CAB6D8F002983D6 /* icon_paopao_middle_right_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DF1CAB6D8F002983D6 /* icon_paopao_middle_right_highlighted@2x.png */; };
+		65C007E81CAB6D8F002983D6 /* icon_paopao_middle_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007E01CAB6D8F002983D6 /* icon_paopao_middle_right@2x.png */; };
+		65C007E91CAB6D8F002983D6 /* pin_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007E11CAB6D8F002983D6 /* pin_green@2x.png */; };
+		65C007EA1CAB6D8F002983D6 /* pin_purple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007E21CAB6D8F002983D6 /* pin_purple@2x.png */; };
+		65C007EB1CAB6D8F002983D6 /* pin_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007E31CAB6D8F002983D6 /* pin_red@2x.png */; };
 		65D8347C1CAA52410032B6D1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D8347B1CAA52410032B6D1 /* MapViewController.m */; };
 		65D8347F1CAA52900032B6D1 /* TileMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D8347E1CAA52900032B6D1 /* TileMapViewController.m */; };
 		65D834811CAA543B0032B6D1 /* Maps in Resources */ = {isa = PBXBuildFile; fileRef = 65D834801CAA543B0032B6D1 /* Maps */; };
@@ -69,6 +77,14 @@
 		652E8B641C8572030003C7D9 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		652E8B661C85720F0003C7D9 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		652E8B681C8572150003C7D9 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_center_point@2x.png"; sourceTree = "<group>"; };
+		65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_paopao_middle_left_highlighted@2x.png"; sourceTree = "<group>"; };
+		65C007DE1CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_paopao_middle_left@2x.png"; sourceTree = "<group>"; };
+		65C007DF1CAB6D8F002983D6 /* icon_paopao_middle_right_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_paopao_middle_right_highlighted@2x.png"; sourceTree = "<group>"; };
+		65C007E01CAB6D8F002983D6 /* icon_paopao_middle_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_paopao_middle_right@2x.png"; sourceTree = "<group>"; };
+		65C007E11CAB6D8F002983D6 /* pin_green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_green@2x.png"; sourceTree = "<group>"; };
+		65C007E21CAB6D8F002983D6 /* pin_purple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_purple@2x.png"; sourceTree = "<group>"; };
+		65C007E31CAB6D8F002983D6 /* pin_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_red@2x.png"; sourceTree = "<group>"; };
 		65D8347A1CAA52410032B6D1 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		65D8347B1CAA52410032B6D1 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		65D8347D1CAA52900032B6D1 /* TileMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapViewController.h; sourceTree = "<group>"; };
@@ -177,6 +193,7 @@
 		652E8B341C856FE40003C7D9 /* MapDemo */ = {
 			isa = PBXGroup;
 			children = (
+				65C007EE1CAB7451002983D6 /* Views */,
 				652E8B6D1C857DB30003C7D9 /* Resources */,
 				652E8B4C1C8571A70003C7D9 /* Libs */,
 				6502F1D71CAA29DB00CB1512 /* Utils */,
@@ -232,8 +249,39 @@
 			isa = PBXGroup;
 			children = (
 				6502F1D21CAA24D200CB1512 /* bailixia.jpg */,
+				65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */,
+				65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */,
+				65C007DE1CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png */,
+				65C007DF1CAB6D8F002983D6 /* icon_paopao_middle_right_highlighted@2x.png */,
+				65C007E01CAB6D8F002983D6 /* icon_paopao_middle_right@2x.png */,
+				65C007E11CAB6D8F002983D6 /* pin_green@2x.png */,
+				65C007E21CAB6D8F002983D6 /* pin_purple@2x.png */,
+				65C007E31CAB6D8F002983D6 /* pin_red@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		65C007EE1CAB7451002983D6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				65C007EF1CAB7451002983D6 /* Cells */,
+				65C007F01CAB7451002983D6 /* Others */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		65C007EF1CAB7451002983D6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		65C007F01CAB7451002983D6 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 		65D834791CAA52410032B6D1 /* ViewControllers */ = {
@@ -318,12 +366,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C007EA1CAB6D8F002983D6 /* pin_purple@2x.png in Resources */,
+				65C007E91CAB6D8F002983D6 /* pin_green@2x.png in Resources */,
 				652E8B451C856FE40003C7D9 /* LaunchScreen.storyboard in Resources */,
+				65C007E61CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png in Resources */,
 				65D834811CAA543B0032B6D1 /* Maps in Resources */,
 				652E8B421C856FE40003C7D9 /* Assets.xcassets in Resources */,
 				6502F1D31CAA24D200CB1512 /* bailixia.jpg in Resources */,
+				65C007E81CAB6D8F002983D6 /* icon_paopao_middle_right@2x.png in Resources */,
+				65C007EB1CAB6D8F002983D6 /* pin_red@2x.png in Resources */,
 				652E8B401C856FE40003C7D9 /* Main.storyboard in Resources */,
+				65C007E41CAB6D8F002983D6 /* icon_center_point@2x.png in Resources */,
 				6502F1D61CAA256D00CB1512 /* hand_drawing_map_list.json in Resources */,
+				65C007E51CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png in Resources */,
+				65C007E71CAB6D8F002983D6 /* icon_paopao_middle_right_highlighted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
