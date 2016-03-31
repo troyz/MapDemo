@@ -57,4 +57,28 @@ const CGFloat ISSMapViewPinAnimationDuration = 0.5f;
     [self.view updatePosition];
 }
 
+- (BOOL)isPlaying
+{
+    return _playerStatus == TTS_PLAYER_STATUS_PLAYING;
+}
+
+- (BOOL)isPaused
+{
+    return _playerStatus == TTS_PLAYER_STATUS_PAUSE;
+}
+
+- (void)play
+{
+    _playerStatus = TTS_PLAYER_STATUS_PLAYING;
+}
+
+- (void)pause
+{
+    _playerStatus = TTS_PLAYER_STATUS_PAUSE;
+}
+
+- (void)stop
+{
+    _playerStatus = TTS_PLAYER_STATUS_NONE;
+}
 @end

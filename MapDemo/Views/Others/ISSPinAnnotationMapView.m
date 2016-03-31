@@ -9,14 +9,10 @@
 #import "ISSPinAnnotationMapView.h"
 #import "NAPinAnnotation.h"
 #import "NAPinAnnotationView.h"
-#import "ISSPinAnnotationCallOutView.h"
 
 const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 
 @interface ISSPinAnnotationMapView()<ISSPinAnnotationCallOutViewDelegate>
-
-@property (nonatomic, strong) ISSPinAnnotationCallOutView *calloutView;
-
 - (IBAction)showCallOut:(id)sender;
 - (void)hideCallOut;
 @end

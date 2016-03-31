@@ -14,7 +14,7 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-// 景区列表排序类型
+// 景点类型
 typedef NS_ENUM(NSInteger, ISSLocationType)
 {
     LOC_TYPE_TICKET = 0,    // 景区
@@ -28,5 +28,11 @@ typedef NS_ENUM(NSInteger, ISSLocationType)
 #define kScreenHeight                   [[UIScreen mainScreen] bounds].size.height
 #define RGBAColor(r,g,b,a)              [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define RGBColor(r,g,b)                 [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(1)]
+
+#define kBaiduMapKey                    @"KEb6veN0iSpvL1lUGQwzcVEt"
+
+#define kBaiduTTSAppID                  @"7809955"
+#define kBaiduTTSApiKey                 @"KEb6veN0iSpvL1lUGQwzcVEt"
+#define kBaiduTTSSecretKey              @"3zQ9Kvg58yLr29WNeFkoTqg9aY9qQ33x"
 
 #endif /* MapDemo_prefix_pch */

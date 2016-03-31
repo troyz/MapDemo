@@ -8,6 +8,7 @@
 
 #import "ISSPinAnnotationCallOutView.h"
 #import "UITool.h"
+#import "ISSPinAnnotation.h"
 
 const CGFloat ISSMapViewAnnotationCalloutAnchorYOffset = 30.0f;
 
@@ -94,6 +95,7 @@ const CGFloat ISSMapViewAnnotationCalloutAnchorYOffset = 30.0f;
     {
         [_delegate playerButtonTapped:_annotation];
     }
+    [self updatePlayButtonText];
 }
 
 - (void)setAnnotation:(NAPinAnnotation *)annotation
@@ -103,6 +105,27 @@ const CGFloat ISSMapViewAnnotationCalloutAnchorYOffset = 30.0f;
     _imgView.image = [UIImage imageNamed:@"temp.png"];
     _titleView.text = annotation.title;
     [self updatePosition];
+    [self updatePlayButtonText];
+}
+
+- (void)updatePlayButtonText
+{
+    if([_annotation isKindOfClass:[ISSPinAnnotation class]])
+    {
+        ISSPinAnnotation *annotation = (ISSPinAnnotation *)_annotation;
+        if([annotation isPlaying])
+        {
+            [_playBtnView setTitle:@"暂停" forState:UIControlStateNormal];
+        }
+        else if([annotation isPaused])
+        {
+            [_playBtnView setTitle:@"继续" forState:UIControlStateNormal];
+        }
+        else
+        {
+            [_playBtnView setTitle:@"播放" forState:UIControlStateNormal];
+        }
+    }
 }
 
 - (void)updateViewFrame

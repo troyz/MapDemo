@@ -20,6 +20,7 @@
 
 /// Recalculate position on map according to zoom level.
 - (void)updatePosition;
+- (void)updatePlayButtonText;
 
 /// Pin annotation.
 @property(readwrite, nonatomic, strong) NAPinAnnotation *annotation;

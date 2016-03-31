@@ -7,6 +7,7 @@
 //
 
 #import "NAPinAnnotationMapView.h"
+#import "ISSPinAnnotationCallOutView.h"
 
 @protocol ISSPinAnnotationMapViewDelegate <NSObject>
 @optional
@@ -14,5 +15,6 @@
 @end
 
 @interface ISSPinAnnotationMapView : NAPinAnnotationMapView
+@property (nonatomic, strong) ISSPinAnnotationCallOutView *calloutView;
 @property (nonatomic, weak) id<ISSPinAnnotationMapViewDelegate> mapDelegate;
 @end

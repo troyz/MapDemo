@@ -30,6 +30,18 @@
 		652E8B651C8572030003C7D9 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 652E8B641C8572030003C7D9 /* libsqlite3.0.tbd */; };
 		652E8B671C85720F0003C7D9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652E8B661C85720F0003C7D9 /* CoreTelephony.framework */; };
 		652E8B691C8572150003C7D9 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 652E8B681C8572150003C7D9 /* libstdc++.6.0.9.tbd */; };
+		658C35C01CACB3D800248C3B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 658C35BF1CACB3D800248C3B /* libc++.tbd */; };
+		658C35C21CACB3E900248C3B /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 658C35C11CACB3E900248C3B /* libz.1.2.5.tbd */; };
+		658C35C51CACB42E00248C3B /* libetts_device_simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 658C35C41CACB42E00248C3B /* libetts_device_simulator.a */; };
+		658C35C71CACB44200248C3B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658C35C61CACB44200248C3B /* AudioToolbox.framework */; };
+		658C35C91CACB44B00248C3B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658C35C81CACB44A00248C3B /* UIKit.framework */; };
+		658C35CB1CACB47100248C3B /* bdtts_license.dat in Resources */ = {isa = PBXBuildFile; fileRef = 658C35CA1CACB47100248C3B /* bdtts_license.dat */; };
+		658C35D21CACB4E900248C3B /* Chinese_Speech_Female.dat in Resources */ = {isa = PBXBuildFile; fileRef = 658C35CC1CACB4E900248C3B /* Chinese_Speech_Female.dat */; };
+		658C35D31CACB4E900248C3B /* Chinese_Speech_Male.dat in Resources */ = {isa = PBXBuildFile; fileRef = 658C35CD1CACB4E900248C3B /* Chinese_Speech_Male.dat */; };
+		658C35D41CACB4E900248C3B /* Chinese_Text.dat in Resources */ = {isa = PBXBuildFile; fileRef = 658C35CE1CACB4E900248C3B /* Chinese_Text.dat */; };
+		658C35D51CACB4E900248C3B /* English_Speech_Female.dat in Resources */ = {isa = PBXBuildFile; fileRef = 658C35CF1CACB4E900248C3B /* English_Speech_Female.dat */; };
+		658C35D61CACB4E900248C3B /* English_Speech_Male.dat in Resources */ = {isa = PBXBuildFile; fileRef = 658C35D01CACB4E900248C3B /* English_Speech_Male.dat */; };
+		658C35D71CACB4E900248C3B /* English_Text.dat in Resources */ = {isa = PBXBuildFile; fileRef = 658C35D11CACB4E900248C3B /* English_Text.dat */; };
 		65C007E41CAB6D8F002983D6 /* icon_center_point@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */; };
 		65C007E51CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */; };
 		65C007E61CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DE1CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png */; };
@@ -88,6 +100,23 @@
 		652E8B641C8572030003C7D9 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		652E8B661C85720F0003C7D9 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		652E8B681C8572150003C7D9 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		658C35BF1CACB3D800248C3B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		658C35C11CACB3E900248C3B /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		658C35C41CACB42E00248C3B /* libetts_device_simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libetts_device_simulator.a; sourceTree = "<group>"; };
+		658C35C61CACB44200248C3B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		658C35C81CACB44A00248C3B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		658C35CA1CACB47100248C3B /* bdtts_license.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bdtts_license.dat; sourceTree = "<group>"; };
+		658C35CC1CACB4E900248C3B /* Chinese_Speech_Female.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chinese_Speech_Female.dat; sourceTree = "<group>"; };
+		658C35CD1CACB4E900248C3B /* Chinese_Speech_Male.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chinese_Speech_Male.dat; sourceTree = "<group>"; };
+		658C35CE1CACB4E900248C3B /* Chinese_Text.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chinese_Text.dat; sourceTree = "<group>"; };
+		658C35CF1CACB4E900248C3B /* English_Speech_Female.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = English_Speech_Female.dat; sourceTree = "<group>"; };
+		658C35D01CACB4E900248C3B /* English_Speech_Male.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = English_Speech_Male.dat; sourceTree = "<group>"; };
+		658C35D11CACB4E900248C3B /* English_Text.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = English_Text.dat; sourceTree = "<group>"; };
+		658C35D91CACB5C100248C3B /* BDSSpeechSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSSpeechSynthesizer.h; sourceTree = "<group>"; };
+		658C35DA1CACB5C100248C3B /* BDSSpeechSynthesizerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSSpeechSynthesizerDelegate.h; sourceTree = "<group>"; };
+		658C35DB1CACB5C100248C3B /* BDSSpeechSynthesizerErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSSpeechSynthesizerErrors.h; sourceTree = "<group>"; };
+		658C35DC1CACB5C100248C3B /* BDSSpeechSynthesizerParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSSpeechSynthesizerParams.h; sourceTree = "<group>"; };
+		658C35DD1CACB5C100248C3B /* BDSSynthesizerLogLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDSSynthesizerLogLevel.h; sourceTree = "<group>"; };
 		65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_center_point@2x.png"; sourceTree = "<group>"; };
 		65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_paopao_middle_left_highlighted@2x.png"; sourceTree = "<group>"; };
 		65C007DE1CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_paopao_middle_left@2x.png"; sourceTree = "<group>"; };
@@ -128,6 +157,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				658C35C91CACB44B00248C3B /* UIKit.framework in Frameworks */,
+				658C35C71CACB44200248C3B /* AudioToolbox.framework in Frameworks */,
+				658C35C51CACB42E00248C3B /* libetts_device_simulator.a in Frameworks */,
+				658C35C21CACB3E900248C3B /* libz.1.2.5.tbd in Frameworks */,
+				658C35C01CACB3D800248C3B /* libc++.tbd in Frameworks */,
 				652E8B691C8572150003C7D9 /* libstdc++.6.0.9.tbd in Frameworks */,
 				652E8B671C85720F0003C7D9 /* CoreTelephony.framework in Frameworks */,
 				652E8B651C8572030003C7D9 /* libsqlite3.0.tbd in Frameworks */,
@@ -149,6 +183,10 @@
 		605B7F3669F54F9C2514D579 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				658C35C81CACB44A00248C3B /* UIKit.framework */,
+				658C35C61CACB44200248C3B /* AudioToolbox.framework */,
+				658C35C11CACB3E900248C3B /* libz.1.2.5.tbd */,
+				658C35BF1CACB3D800248C3B /* libc++.tbd */,
 				652E8B681C8572150003C7D9 /* libstdc++.6.0.9.tbd */,
 				652E8B661C85720F0003C7D9 /* CoreTelephony.framework */,
 				652E8B641C8572030003C7D9 /* libsqlite3.0.tbd */,
@@ -253,17 +291,19 @@
 		652E8B4C1C8571A70003C7D9 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				652E8B4D1C8571A70003C7D9 /* Baidu */,
+				658C35C31CACB42500248C3B /* BaiduTTS */,
+				652E8B4D1C8571A70003C7D9 /* BaiduMap */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
 		};
-		652E8B4D1C8571A70003C7D9 /* Baidu */ = {
+		652E8B4D1C8571A70003C7D9 /* BaiduMap */ = {
 			isa = PBXGroup;
 			children = (
 				652E8B4E1C8571B10003C7D9 /* BaiduMapAPI_Base.framework */,
 				652E8B521C8571B20003C7D9 /* BaiduMapAPI_Utils.framework */,
 			);
+			name = BaiduMap;
 			path = Baidu;
 			sourceTree = "<group>";
 		};
@@ -296,6 +336,34 @@
 				65C008061CABAA34002983D6 /* db_poi_toilet@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		658C35C31CACB42500248C3B /* BaiduTTS */ = {
+			isa = PBXGroup;
+			children = (
+				658C35D81CACB57900248C3B /* inc */,
+				658C35C41CACB42E00248C3B /* libetts_device_simulator.a */,
+				658C35CA1CACB47100248C3B /* bdtts_license.dat */,
+				658C35CC1CACB4E900248C3B /* Chinese_Speech_Female.dat */,
+				658C35CD1CACB4E900248C3B /* Chinese_Speech_Male.dat */,
+				658C35CE1CACB4E900248C3B /* Chinese_Text.dat */,
+				658C35CF1CACB4E900248C3B /* English_Speech_Female.dat */,
+				658C35D01CACB4E900248C3B /* English_Speech_Male.dat */,
+				658C35D11CACB4E900248C3B /* English_Text.dat */,
+			);
+			path = BaiduTTS;
+			sourceTree = "<group>";
+		};
+		658C35D81CACB57900248C3B /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				658C35D91CACB5C100248C3B /* BDSSpeechSynthesizer.h */,
+				658C35DA1CACB5C100248C3B /* BDSSpeechSynthesizerDelegate.h */,
+				658C35DB1CACB5C100248C3B /* BDSSpeechSynthesizerErrors.h */,
+				658C35DC1CACB5C100248C3B /* BDSSpeechSynthesizerParams.h */,
+				658C35DD1CACB5C100248C3B /* BDSSynthesizerLogLevel.h */,
+			);
+			name = inc;
 			sourceTree = "<group>";
 		};
 		65C007EE1CAB7451002983D6 /* Views */ = {
@@ -413,6 +481,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				658C35D31CACB4E900248C3B /* Chinese_Speech_Male.dat in Resources */,
+				658C35D71CACB4E900248C3B /* English_Text.dat in Resources */,
 				652E8B451C856FE40003C7D9 /* LaunchScreen.storyboard in Resources */,
 				65C007E61CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png in Resources */,
 				65C008081CABAA34002983D6 /* btn_sound_nomal@2x.png in Resources */,
@@ -422,16 +492,21 @@
 				65C007E81CAB6D8F002983D6 /* icon_paopao_middle_right@2x.png in Resources */,
 				65C0080A1CABAA34002983D6 /* db_poi_depot@2x.png in Resources */,
 				65C0080D1CABAA34002983D6 /* db_poi_toilet@2x.png in Resources */,
+				658C35D51CACB4E900248C3B /* English_Speech_Female.dat in Resources */,
 				65C008221CABD458002983D6 /* temp.png in Resources */,
 				65C008091CABAA34002983D6 /* db_poi_bar@2x.png in Resources */,
+				658C35D61CACB4E900248C3B /* English_Speech_Male.dat in Resources */,
 				65C0080C1CABAA34002983D6 /* db_poi_ticket@2x.png in Resources */,
 				65C0080B1CABAA34002983D6 /* db_poi_museum@2x.png in Resources */,
+				658C35D21CACB4E900248C3B /* Chinese_Speech_Female.dat in Resources */,
 				652E8B401C856FE40003C7D9 /* Main.storyboard in Resources */,
 				65C007E41CAB6D8F002983D6 /* icon_center_point@2x.png in Resources */,
 				65C008071CABAA34002983D6 /* btn_sound_click@2x.png in Resources */,
+				658C35D41CACB4E900248C3B /* Chinese_Text.dat in Resources */,
 				6502F1D61CAA256D00CB1512 /* hand_drawing_map_list.json in Resources */,
 				65C007E51CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png in Resources */,
 				65C007E71CAB6D8F002983D6 /* icon_paopao_middle_right_highlighted@2x.png in Resources */,
+				658C35CB1CACB47100248C3B /* bdtts_license.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,7 +698,11 @@
 				GCC_PREFIX_HEADER = "MapDemo/MapDemo-prefix.pch";
 				INFOPLIST_FILE = MapDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.isoftstone.ent.MapDemo;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MapDemo/Libs/BaiduTTS",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.isoftstone.ent.LBManage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -641,7 +720,11 @@
 				GCC_PREFIX_HEADER = "MapDemo/MapDemo-prefix.pch";
 				INFOPLIST_FILE = MapDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.isoftstone.ent.MapDemo;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MapDemo/Libs/BaiduTTS",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.isoftstone.ent.LBManage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
