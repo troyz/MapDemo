@@ -15,7 +15,7 @@
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
 #import "BDSSpeechSynthesizer.h"
 
-// 如果距离小于100米，则播报
+// 如果距离小于200米，则播报
 #define MAX_NEAR_BY_DISTANCE                200
 
 // 是否模拟导航
@@ -106,7 +106,8 @@
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     //    mapView.displayTileBorders = YES;
     
-    mapView.backgroundColor  = [UIColor colorWithRed:0.000f green:0.475f blue:0.761f alpha:1.000f];
+//    mapView.backgroundColor  = [UIColor colorWithRed:0.000f green:0.475f blue:0.761f alpha:1.000f];
+    self.view.backgroundColor = RGBColor(194, 222, 215);
     mapView.zoomStep = 3.0f;
     
     [self.view addSubview:mapView];
