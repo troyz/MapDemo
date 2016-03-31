@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <BaiduMapAPI_Base/BMKBaseComponent.h>
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, BMKGeneralDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, BMKGeneralDelegate, BMKLocationServiceDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

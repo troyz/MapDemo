@@ -12,6 +12,7 @@
 @interface AppDelegate ()
 {
     BMKMapManager *mapManager;
+    BMKLocationService *locService;
 }
 @end
 
@@ -21,6 +22,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [[UserLocationModel get] clear];
+    
     // 要使用百度地图，请先启动BaiduMapManager
     mapManager = [[BMKMapManager alloc]init];
     BOOL ret = [mapManager start:kBaiduMapKey generalDelegate:self];
@@ -29,12 +32,17 @@
         NSLog(@"manager start failed!");
     }
     
+    locService = [[BMKLocationService alloc] init];
+    locService.delegate = self;
+    [locService startUserLocationService];
+    
     return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [locService stopUserLocationService];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -44,6 +52,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [locService startUserLocationService];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -52,8 +61,10 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [locService stopUserLocationService];
 }
 
+#pragma mark BMKGeneralDelegate
 - (void)onGetNetworkState:(int)iError
 {
     if (0 == iError)
@@ -64,7 +75,6 @@
     {
         NSLog(@"onGetNetworkState %d",iError);
     }
-    
 }
 
 - (void)onGetPermissionState:(int)iError
@@ -77,5 +87,22 @@
     {
         NSLog(@"onGetPermissionState %d",iError);
     }
+}
+
+//处理位置坐标更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    CLLocationCoordinate2D coor = userLocation.location.coordinate;
+    
+    UserLocationModel *locModel = [UserLocationModel get];
+    if(locModel.lat == coor.latitude && locModel.lng == coor.longitude)
+    {
+        return;
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOCATION_UPDATED object:nil];
+    }
+//    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
 }
 @end

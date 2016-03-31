@@ -68,6 +68,8 @@
     }
     
     [self initTTSConfig];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLocationUpdatedNotify) name:NOTIFICATION_LOCATION_UPDATED object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -229,6 +231,20 @@
             [mapView.calloutView updatePlayButtonText];
         }
     }
+}
+
+- (void)userLocationUpdatedNotify
+{
+    UserLocationModel *locModel = [UserLocationModel get];
+    if(![locModel isValidLocation])
+    {
+        return;
+    }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {

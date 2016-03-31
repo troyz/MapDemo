@@ -34,9 +34,9 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>world</string>
+	<string>开启定位获得更优质的服务</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>hello</string>
+	<string>开启定位获得更优质的服务</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

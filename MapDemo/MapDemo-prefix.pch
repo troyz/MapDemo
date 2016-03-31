@@ -11,6 +11,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UserLocationModel.h"
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
@@ -30,9 +32,10 @@ typedef NS_ENUM(NSInteger, ISSLocationType)
 #define RGBColor(r,g,b)                 [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(1)]
 
 #define kBaiduMapKey                    @"KEb6veN0iSpvL1lUGQwzcVEt"
-
 #define kBaiduTTSAppID                  @"7809955"
-#define kBaiduTTSApiKey                 @"KEb6veN0iSpvL1lUGQwzcVEt"
+#define kBaiduTTSApiKey                 kBaiduMapKey
 #define kBaiduTTSSecretKey              @"3zQ9Kvg58yLr29WNeFkoTqg9aY9qQ33x"
+
+#define NOTIFICATION_LOCATION_UPDATED   @"notification_user_location_updated"
 
 #endif /* MapDemo_prefix_pch */
