@@ -21,8 +21,13 @@
 
 @interface MapItemModel : ISSJSONModel
 @property (nonatomic, copy) NSString *imgName;
+// 图片左上角经纬度
 @property (nonatomic, assign) CGFloat topLeftLat;
 @property (nonatomic, assign) CGFloat topLeftLng;
+// 缩放比例，标准平面坐标是在百度地图18级。
 @property (nonatomic, assign) CGFloat zoomRate;
+// 原始图片尺寸
+@property (nonatomic, assign) NSInteger originalImageWidth;
+@property (nonatomic, assign) NSInteger originalImageHeight;
 @property (nonatomic, strong) NSMutableArray<MapLocationItemModel> *locationList;
 @end

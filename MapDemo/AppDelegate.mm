@@ -101,6 +101,10 @@
     }
     else
     {
+        locModel.lat = coor.latitude;
+        locModel.lng = coor.longitude;
+        [locModel save];
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOCATION_UPDATED object:nil];
     }
 //    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);

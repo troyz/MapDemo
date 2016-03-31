@@ -9,6 +9,7 @@
 #import "ISSPinAnnotationMapView.h"
 #import "NAPinAnnotation.h"
 #import "NAPinAnnotationView.h"
+#import "ISSPinAnnotationView.h"
 
 const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 
@@ -54,8 +55,10 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 
 - (IBAction)showCallOut:(id)sender
 {
-    if([sender isKindOfClass:[NAPinAnnotationView class]]) {
+    if([sender isKindOfClass:[NAPinAnnotationView class]])
+    {
         NAPinAnnotationView *annontationView = (NAPinAnnotationView *)sender;
+        
         [self bringSubviewToFront:annontationView];
         [self bringSubviewToFront:self.calloutView];
         
@@ -63,7 +66,14 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
             [self.mapViewDelegate mapView:self tappedOnAnnotation:annontationView.annotation];
         }
         
-        [self showCalloutForAnnotation:annontationView.annotation animated:YES];
+        if([annontationView isKindOfClass:[ISSPinAnnotationView class]] && ((ISSPinAnnotationView *)annontationView).annotation.locType == LOC_TYPE_CURRENT)
+        {
+            NSLog(@"当前位置标记不需要触发点击事件");
+        }
+        else
+        {
+            [self showCalloutForAnnotation:annontationView.annotation animated:YES];
+        }
     }
 }
 

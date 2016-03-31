@@ -51,6 +51,9 @@ const CGFloat ISSMapViewAnnotationPinPointY = 36.0f;
         case LOC_TYPE_TOILET:
             pinImageName = @"db_poi_toilet";
             break;
+        case LOC_TYPE_CURRENT:
+            pinImageName = @"icon_center_point";
+            break;
     }
     
     UIImage *pinImage = [UIImage imageNamed:pinImageName];
@@ -60,9 +63,19 @@ const CGFloat ISSMapViewAnnotationPinPointY = 36.0f;
 - (void)updatePosition
 {
     CGPoint point = [self.mapView zoomRelativePoint:self.annotation.point];
-    point.x = point.x - ISSMapViewAnnotationPinPointX;
-    point.y = point.y - ISSMapViewAnnotationPinPointY;
-    self.frame = CGRectMake(point.x, point.y, ISSMapViewAnnotationPinWidth, ISSMapViewAnnotationPinHeight);
+    if(self.annotation.locType == LOC_TYPE_CURRENT)
+    {
+        UIImage *image = [self imageForState:UIControlStateNormal];
+        point.x = point.x - image.size.width / 2.0;
+        point.y = point.y - image.size.height / 2.0;
+        self.frame = CGRectMake(point.x, point.y, image.size.width, image.size.height);
+    }
+    else
+    {
+        point.x = point.x - ISSMapViewAnnotationPinPointX;
+        point.y = point.y - ISSMapViewAnnotationPinPointY;
+        self.frame = CGRectMake(point.x, point.y, ISSMapViewAnnotationPinWidth, ISSMapViewAnnotationPinHeight);
+    }
 }
 
 @end

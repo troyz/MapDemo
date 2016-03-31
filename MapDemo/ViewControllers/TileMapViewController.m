@@ -22,6 +22,7 @@
     ISSTiledImageMapView *mapView;
     ARLocalTiledImageDataSource *dataSource;
     NSMutableArray *pinList;
+    ISSPinAnnotation *currentLocPinAnnotation;
 }
 @end
 
@@ -37,8 +38,8 @@
     leftTopCoor = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(mapItem.topLeftLat, mapItem.topLeftLng));
     
     dataSource = [[ARLocalTiledImageDataSource alloc] init];
-    dataSource.maxTiledHeight = 1920;
-    dataSource.maxTiledWidth = 1080;
+    dataSource.maxTiledHeight = mapItem.originalImageHeight;
+    dataSource.maxTiledWidth = mapItem.originalImageWidth;
     dataSource.minTileLevel = 9;
     dataSource.maxTileLevel = 11;
     dataSource.tileSize = 256;
@@ -61,7 +62,6 @@
         MapLocationItemModel *locItem = mapItem.locationList[i];
         ISSPinAnnotation *melbourne = [ISSPinAnnotation annotationWithPoint:[self locationCoordToCgPoint:CLLocationCoordinate2DMake(locItem.lat, locItem.lng)]];
         melbourne.title = locItem.name;
-        melbourne.color = i % 3;
         [mapView addAnnotation:melbourne animated:YES];
         
         [pinList addObject:melbourne];
@@ -70,6 +70,7 @@
     [self initTTSConfig];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLocationUpdatedNotify) name:NOTIFICATION_LOCATION_UPDATED object:nil];
+    [self userLocationUpdatedNotify];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -82,7 +83,7 @@
 {
     [[BDSSpeechSynthesizer sharedInstance] setSynthesizerDelegate:self];
     // 设置日志级别
-    [BDSSpeechSynthesizer setLogLevel: BDS_PUBLIC_LOG_VERBOSE];
+    [BDSSpeechSynthesizer setLogLevel: BDS_PUBLIC_LOG_WARN];
     
     [[BDSSpeechSynthesizer sharedInstance] setApiKey:kBaiduTTSApiKey withSecretKey:kBaiduTTSSecretKey];
     
@@ -239,6 +240,37 @@
     if(![locModel isValidLocation])
     {
         return;
+    }
+    CLLocationCoordinate2D coor;
+    coor.latitude = locModel.lat;
+    coor.longitude = locModel.lng;
+    CGPoint point = [self locationCoordToCgPoint:coor];
+
+    if(point.x < 0 || point.y < 0 || point.x > mapItem.originalImageWidth || point.y > mapItem.originalImageHeight)
+    {
+        NSLog(@"当前不在景区范围内");
+        if(currentLocPinAnnotation)
+        {
+            [mapView removeAnnotation:currentLocPinAnnotation];
+            [pinList removeObject:currentLocPinAnnotation];
+            currentLocPinAnnotation = nil;
+        }
+    }
+    else
+    {
+        NSLog(@"当前在景区范围内");
+        if(currentLocPinAnnotation)
+        {
+            currentLocPinAnnotation.point = [self locationCoordToCgPoint:CLLocationCoordinate2DMake(locModel.lat, locModel.lng)];
+            [currentLocPinAnnotation updatePosition];
+        }
+        else
+        {
+            currentLocPinAnnotation = [ISSPinAnnotation annotationWithPoint:[self locationCoordToCgPoint:CLLocationCoordinate2DMake(locModel.lat, locModel.lng)]];
+            currentLocPinAnnotation.locType = LOC_TYPE_CURRENT;
+            [mapView addAnnotation:currentLocPinAnnotation animated:YES];
+            [pinList addObject:currentLocPinAnnotation];
+        }
     }
 }
 

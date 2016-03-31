@@ -44,6 +44,7 @@
 		658D4D821CACF56B00431778 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D4D7F1CACF56B00431778 /* BaiduMapAPI_Location.framework */; };
 		658D4D871CACF81000431778 /* UserLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 658D4D861CACF81000431778 /* UserLocationModel.m */; };
 		658D4D891CACFAF900431778 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D4D881CACFAF900431778 /* BaiduMapAPI_Utils.framework */; };
+		658D4D8E1CAD00D800431778 /* NSString+Addtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 658D4D8D1CAD00D800431778 /* NSString+Addtions.m */; };
 		65C007E41CAB6D8F002983D6 /* icon_center_point@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */; };
 		65C007E51CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */; };
 		65C007E61CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DE1CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png */; };
@@ -122,6 +123,8 @@
 		658D4D851CACF81000431778 /* UserLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLocationModel.h; sourceTree = "<group>"; };
 		658D4D861CACF81000431778 /* UserLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLocationModel.m; sourceTree = "<group>"; };
 		658D4D881CACFAF900431778 /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
+		658D4D8C1CAD00D800431778 /* NSString+Addtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Addtions.h"; sourceTree = "<group>"; };
+		658D4D8D1CAD00D800431778 /* NSString+Addtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Addtions.m"; sourceTree = "<group>"; };
 		65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_center_point@2x.png"; sourceTree = "<group>"; };
 		65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_paopao_middle_left_highlighted@2x.png"; sourceTree = "<group>"; };
 		65C007DE1CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_paopao_middle_left@2x.png"; sourceTree = "<group>"; };
@@ -238,12 +241,8 @@
 		6502F1D71CAA29DB00CB1512 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				6502F1D81CAA29E400CB1512 /* FileUtil.h */,
-				6502F1D91CAA29E400CB1512 /* FileUtil.m */,
-				6502F1DB1CAA29F100CB1512 /* SysUtil.h */,
-				6502F1DC1CAA29F100CB1512 /* SysUtil.m */,
-				65C008231CABD4D5002983D6 /* UITool.h */,
-				65C008241CABD4D5002983D6 /* UITool.m */,
+				658D4D8B1CAD00CE00431778 /* NSString */,
+				658D4D8A1CAD00C400431778 /* Sys */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -380,6 +379,28 @@
 				658D4D861CACF81000431778 /* UserLocationModel.m */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		658D4D8A1CAD00C400431778 /* Sys */ = {
+			isa = PBXGroup;
+			children = (
+				6502F1D81CAA29E400CB1512 /* FileUtil.h */,
+				6502F1D91CAA29E400CB1512 /* FileUtil.m */,
+				6502F1DB1CAA29F100CB1512 /* SysUtil.h */,
+				6502F1DC1CAA29F100CB1512 /* SysUtil.m */,
+				65C008231CABD4D5002983D6 /* UITool.h */,
+				65C008241CABD4D5002983D6 /* UITool.m */,
+			);
+			name = Sys;
+			sourceTree = "<group>";
+		};
+		658D4D8B1CAD00CE00431778 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				658D4D8C1CAD00D800431778 /* NSString+Addtions.h */,
+				658D4D8D1CAD00D800431778 /* NSString+Addtions.m */,
+			);
+			name = NSString;
 			sourceTree = "<group>";
 		};
 		65C007EE1CAB7451002983D6 /* Views */ = {
@@ -581,6 +602,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				658D4D8E1CAD00D800431778 /* NSString+Addtions.m in Sources */,
 				65C008201CABB697002983D6 /* ISSPinAnnotationCallOutView.m in Sources */,
 				652E8B3A1C856FE40003C7D9 /* AppDelegate.mm in Sources */,
 				65C008131CABAD0E002983D6 /* ISSPinAnnotationView.m in Sources */,

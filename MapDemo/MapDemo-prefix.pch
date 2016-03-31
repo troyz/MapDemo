@@ -23,7 +23,8 @@ typedef NS_ENUM(NSInteger, ISSLocationType)
     LOC_TYPE_BAR    = 1,    // 酒吧
     LOC_TYPE_DEPOT  = 2,    // 车站
     LOC_TYPE_MUSEUM = 3,    // 博物馆
-    LOC_TYPE_TOILET = 4     // 厕所
+    LOC_TYPE_TOILET = 4,    // 厕所
+    LOC_TYPE_CURRENT= 5,    // 当前位置
 };
 
 #define kScreenWidth                    [[UIScreen mainScreen] bounds].size.width
