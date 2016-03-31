@@ -19,12 +19,21 @@
     _imgName = imgName;
     if(_imgName && ![_imgName isUrl] && !_originalImageHeight && !_originalImageWidth)
     {
-        UIImage *image = [UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] bundlePath] stringByAppendingString:[NSString stringWithFormat:@"/%@", imgName]]];
+        UIImage *image = [UIImage imageWithContentsOfFile:[self localImageFullPath]];
         if(image)
         {
             _originalImageWidth = image.size.width;
             _originalImageHeight = image.size.height;
         }
     }
+}
+
+- (NSString *)localImageFullPath
+{
+    if(_imgName && ![_imgName isUrl])
+    {
+        return [[[NSBundle mainBundle] bundlePath] stringByAppendingString:[NSString stringWithFormat:@"/%@", _imgName]];
+    }
+    return @"";
 }
 @end

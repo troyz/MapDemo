@@ -15,6 +15,9 @@
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
 #import "BDSSpeechSynthesizer.h"
 
+// 如果距离小于100米，则播报
+#define MAX_NEAR_BY_DISTANCE                100
+
 @interface TileMapViewController ()<ISSPinAnnotationMapViewDelegate, BDSSpeechSynthesizerDelegate>
 {
     BMKMapPoint leftTopCoor;
@@ -23,6 +26,9 @@
     ARLocalTiledImageDataSource *dataSource;
     NSMutableArray *pinList;
     ISSPinAnnotation *currentLocPinAnnotation;
+    
+    // 最近一次播报的景点index
+    NSInteger lastNearIndex;
 }
 @end
 
@@ -32,6 +38,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    lastNearIndex = -1;
     
     mapItem = [[MapItemModel arrayOfModelsFromData:[FileUtil readFileFromPath:@"hand_drawing_map_list.json"] error:nil] objectAtIndex:0];
     
@@ -181,7 +189,9 @@
             [pinAnnotation stop];
         }
     }
-    MapLocationItemModel *locItem = [mapItem.locationList objectAtIndex:index];
+    // 是否是播放靠近景区
+    BOOL isPlayNearByMessage = (annotation == currentLocPinAnnotation);
+    MapLocationItemModel *locItem = isPlayNearByMessage ? [mapItem.locationList objectAtIndex:lastNearIndex] : [mapItem.locationList objectAtIndex:index];
     BDSSynthesizerStatus status = [[BDSSpeechSynthesizer sharedInstance] synthesizerStatus];
     if(status == BDS_SYNTHESIZER_STATUS_WORKING)
     {
@@ -216,7 +226,7 @@
     }
     else
     {
-        [[BDSSpeechSynthesizer sharedInstance] speak:locItem.desc];
+        [[BDSSpeechSynthesizer sharedInstance] speak:isPlayNearByMessage ? [NSString stringWithFormat:@"您已到达%@!", locItem.name] : locItem.desc];
         [annotation play];
     }
 }
@@ -270,6 +280,36 @@
             currentLocPinAnnotation.locType = LOC_TYPE_CURRENT;
             [mapView addAnnotation:currentLocPinAnnotation animated:YES];
             [pinList addObject:currentLocPinAnnotation];
+        }
+        
+        // 获取最近的景点，并播报
+        CGFloat latestDistance = CGFLOAT_MAX;
+        NSInteger latestIndex = NSNotFound;
+        
+        CLLocationCoordinate2D currentCoor;
+        currentCoor.latitude = locModel.lat;
+        currentCoor.longitude = locModel.lng;
+        
+        for(NSInteger i = 0; i < mapItem.locationList.count; i++)
+        {
+            MapLocationItemModel *locItem = mapItem.locationList[i];
+            CLLocationCoordinate2D coor;
+            coor.latitude = locItem.lat;
+            coor.longitude = locItem.lng;
+            
+            CGFloat distance = BMKMetersBetweenMapPoints(BMKMapPointForCoordinate(coor), BMKMapPointForCoordinate(currentCoor));
+            if(distance < MAX_NEAR_BY_DISTANCE
+               && distance < latestDistance)
+            {
+                latestDistance = distance;
+                latestIndex = i;
+            }
+        }
+        
+        if(latestIndex != NSNotFound && latestIndex != lastNearIndex)
+        {
+            lastNearIndex = latestIndex;
+            [self playWithTTS:currentLocPinAnnotation];
         }
     }
 }
