@@ -10,8 +10,9 @@
 #define MapDemo_prefix_pch
 
 #import <UIKit/UIKit.h>
-
+#import "UITool.h"
 #import "UserLocationModel.h"
+#import "AppDelegate.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
@@ -26,6 +27,7 @@ typedef NS_ENUM(NSInteger, ISSLocationType)
     LOC_TYPE_TOILET = 4,    // 厕所
     LOC_TYPE_CURRENT= 5,    // 当前位置
 };
+#define APP_DELEGATE()                  ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 
 #define kScreenWidth                    [[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight                   [[UIScreen mainScreen] bounds].size.height

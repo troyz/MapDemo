@@ -13,7 +13,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate, BMKGeneralDelegate, BMKLocationServiceDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-
+- (void)startLocation;
+- (void)stopLocation;
 @end
 

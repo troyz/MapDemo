@@ -16,19 +16,29 @@
 #import "BDSSpeechSynthesizer.h"
 
 // 如果距离小于100米，则播报
-#define MAX_NEAR_BY_DISTANCE                100
+#define MAX_NEAR_BY_DISTANCE                200
+
+// 是否模拟导航
+#define IS_MOCK_NAVIGATION                  1
 
 @interface TileMapViewController ()<ISSPinAnnotationMapViewDelegate, BDSSpeechSynthesizerDelegate>
 {
+    ISSTiledImageMapView *mapView;
+    UIButton *soundBtnView;
+    
     BMKMapPoint leftTopCoor;
     MapItemModel *mapItem;
-    ISSTiledImageMapView *mapView;
     ARLocalTiledImageDataSource *dataSource;
     NSMutableArray *pinList;
     ISSPinAnnotation *currentLocPinAnnotation;
-    
     // 最近一次播报的景点index
     NSInteger lastNearIndex;
+    BOOL isSoundAutoPlayDisabled;
+#ifdef IS_MOCK_NAVIGATION
+    UIButton *mockNavBtnView;
+    NSMutableArray *mockLocList;
+    NSInteger mockIndex;
+#endif
 }
 @end
 
@@ -38,7 +48,24 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self initVariables];
     
+    [self initViews];
+    
+    [self initTTSConfig];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLocationUpdatedNotify) name:NOTIFICATION_LOCATION_UPDATED object:nil];
+    [self userLocationUpdatedNotify];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [mapView zoomToFit:animated];
+}
+
+- (void)initVariables
+{
     lastNearIndex = -1;
     
     mapItem = [[MapItemModel arrayOfModelsFromData:[FileUtil readFileFromPath:@"hand_drawing_map_list.json"] error:nil] objectAtIndex:0];
@@ -54,37 +81,56 @@
     dataSource.tileFormat = @"jpg";
     dataSource.tileBasePath = [NSString stringWithFormat:@"%@/Maps/bailixia", [NSBundle mainBundle].resourcePath];
     
+    pinList = [[NSMutableArray alloc] init];
+    
+#ifdef IS_MOCK_NAVIGATION
+    mockIndex = -1;
+    mockLocList = [[NSMutableArray alloc] init];
+    mockLocList = [UserLocationModel arrayOfModelsFromData:[FileUtil readFileFromPath:@"mock_location_list.json"] error:nil];
+#endif
+}
+
+- (void)initViews
+{
+    [self initMapView];
+    [self initSoundControlView];
+#ifdef IS_MOCK_NAVIGATION
+    [self initMocButtonView];
+#endif
+}
+
+- (void)initMapView
+{
     mapView = [[ISSTiledImageMapView alloc] initWithFrame:self.view.bounds tiledImageDataSource:dataSource];
     mapView.mapDelegate = self;
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//    mapView.displayTileBorders = YES;
-
+    //    mapView.displayTileBorders = YES;
+    
     mapView.backgroundColor  = [UIColor colorWithRed:0.000f green:0.475f blue:0.761f alpha:1.000f];
     mapView.zoomStep = 3.0f;
     
     [self.view addSubview:mapView];
     
-    pinList = [[NSMutableArray alloc] init];
     for(NSInteger i = 0; i < mapItem.locationList.count; i++)
     {
         MapLocationItemModel *locItem = mapItem.locationList[i];
         ISSPinAnnotation *melbourne = [ISSPinAnnotation annotationWithPoint:[self locationCoordToCgPoint:CLLocationCoordinate2DMake(locItem.lat, locItem.lng)]];
         melbourne.title = locItem.name;
         [mapView addAnnotation:melbourne animated:YES];
-        
         [pinList addObject:melbourne];
     }
-    
-    [self initTTSConfig];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLocationUpdatedNotify) name:NOTIFICATION_LOCATION_UPDATED object:nil];
-    [self userLocationUpdatedNotify];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+#pragma mark 控制是否自动播报声音
+- (void)initSoundControlView
 {
-    [super viewDidAppear:animated];
-    [mapView zoomToFit:animated];
+    soundBtnView = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGFloat wh = 40;
+    soundBtnView.frame = CGRectMake(0, kScreenHeight - wh, wh, wh);
+    [soundBtnView setImage:[UIImage imageNamed:@"btn_sound_click.png"] forState:UIControlStateNormal];
+    [soundBtnView setImage:[UIImage imageNamed:@"btn_sound_nomal.png"] forState:UIControlStateSelected];
+    [soundBtnView addTarget:self action:@selector(soundButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:soundBtnView];
 }
 
 - (void)initTTSConfig
@@ -193,6 +239,7 @@
     BOOL isPlayNearByMessage = (annotation == currentLocPinAnnotation);
     MapLocationItemModel *locItem = isPlayNearByMessage ? [mapItem.locationList objectAtIndex:lastNearIndex] : [mapItem.locationList objectAtIndex:index];
     BDSSynthesizerStatus status = [[BDSSpeechSynthesizer sharedInstance] synthesizerStatus];
+    NSString *speakMessage = isPlayNearByMessage ? [NSString stringWithFormat:@"您已到达%@!", locItem.name] : locItem.desc;
     if(status == BDS_SYNTHESIZER_STATUS_WORKING)
     {
         if([annotation isPlaying])
@@ -203,7 +250,7 @@
         else
         {
             [[BDSSpeechSynthesizer sharedInstance] cancel];
-            [[BDSSpeechSynthesizer sharedInstance] speak:locItem.desc];
+            [[BDSSpeechSynthesizer sharedInstance] speak:speakMessage];
             [annotation play];
         }
     }
@@ -216,7 +263,7 @@
         else
         {
             [[BDSSpeechSynthesizer sharedInstance] cancel];
-            [[BDSSpeechSynthesizer sharedInstance] speak:locItem.desc];
+            [[BDSSpeechSynthesizer sharedInstance] speak:speakMessage];
         }
         [annotation play];
     }
@@ -226,7 +273,7 @@
     }
     else
     {
-        [[BDSSpeechSynthesizer sharedInstance] speak:isPlayNearByMessage ? [NSString stringWithFormat:@"您已到达%@!", locItem.name] : locItem.desc];
+        [[BDSSpeechSynthesizer sharedInstance] speak:speakMessage];
         [annotation play];
     }
 }
@@ -244,6 +291,7 @@
     }
 }
 
+#pragma mark 位置信息刷新后
 - (void)userLocationUpdatedNotify
 {
     UserLocationModel *locModel = [UserLocationModel get];
@@ -281,7 +329,7 @@
             [mapView addAnnotation:currentLocPinAnnotation animated:YES];
             [pinList addObject:currentLocPinAnnotation];
         }
-        
+        [mapView bringSubviewToFront:currentLocPinAnnotation.view];
         // 获取最近的景点，并播报
         CGFloat latestDistance = CGFLOAT_MAX;
         NSInteger latestIndex = NSNotFound;
@@ -309,10 +357,60 @@
         if(latestIndex != NSNotFound && latestIndex != lastNearIndex)
         {
             lastNearIndex = latestIndex;
-            [self playWithTTS:currentLocPinAnnotation];
+            if(!isSoundAutoPlayDisabled)
+            {
+                [self playWithTTS:currentLocPinAnnotation];
+            }
         }
     }
 }
+
+- (void)soundButtonTapped
+{
+    isSoundAutoPlayDisabled = !isSoundAutoPlayDisabled;
+    [soundBtnView setSelected:isSoundAutoPlayDisabled];
+    
+#ifdef IS_MOCK_NAVIGATION
+    mockNavBtnView.hidden = isSoundAutoPlayDisabled;
+    if(mockNavBtnView.hidden)
+    {
+        [APP_DELEGATE() startLocation];
+    }
+    else
+    {
+        [APP_DELEGATE() stopLocation];
+    }
+#endif
+}
+
+#ifdef IS_MOCK_NAVIGATION
+#pragma mark 模拟导航
+- (void)initMocButtonView
+{
+    mockNavBtnView = [UIButton buttonWithType:UIButtonTypeCustom];
+    mockNavBtnView.titleLabel.font = [UIFont systemFontOfSize:13];
+    [mockNavBtnView setTitle:@"模拟导航" forState:UIControlStateNormal];
+    [mockNavBtnView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [mockNavBtnView setBackgroundColor:[UIColor orangeColor]];
+    [mockNavBtnView setBackgroundImage:[UITool createImageWithColor:RGBColor(227, 111, 41)] forState:UIControlStateHighlighted];
+    CGFloat width = 120;
+    CGFloat height = 35;
+    mockNavBtnView.frame = CGRectMake((kScreenWidth - width) / 2.0, kScreenHeight - 8 - height, width, height);
+    [mockNavBtnView addTarget:self action:@selector(mockButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:mockNavBtnView];
+}
+
+- (void)mockButtonTapped
+{
+    mockIndex = (mockIndex + 1) % mockLocList.count;
+    UserLocationModel *mockItem = [mockLocList objectAtIndex:mockIndex];
+    UserLocationModel *userLocItem = [UserLocationModel get];
+    userLocItem.lat = mockItem.lat;
+    userLocItem.lng = mockItem.lng;
+    [userLocItem save];
+    [self userLocationUpdatedNotify];
+}
+#endif
 
 - (void)dealloc
 {

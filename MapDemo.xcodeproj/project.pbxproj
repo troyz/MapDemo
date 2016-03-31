@@ -45,6 +45,7 @@
 		658D4D871CACF81000431778 /* UserLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 658D4D861CACF81000431778 /* UserLocationModel.m */; };
 		658D4D891CACFAF900431778 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D4D881CACFAF900431778 /* BaiduMapAPI_Utils.framework */; };
 		658D4D8E1CAD00D800431778 /* NSString+Addtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 658D4D8D1CAD00D800431778 /* NSString+Addtions.m */; };
+		65B5D4731CAD224A00A3D6FE /* mock_location_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 65B5D4721CAD224A00A3D6FE /* mock_location_list.json */; };
 		65C007E41CAB6D8F002983D6 /* icon_center_point@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */; };
 		65C007E51CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */; };
 		65C007E61CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DE1CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png */; };
@@ -125,6 +126,7 @@
 		658D4D881CACFAF900431778 /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
 		658D4D8C1CAD00D800431778 /* NSString+Addtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Addtions.h"; sourceTree = "<group>"; };
 		658D4D8D1CAD00D800431778 /* NSString+Addtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Addtions.m"; sourceTree = "<group>"; };
+		65B5D4721CAD224A00A3D6FE /* mock_location_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_location_list.json; sourceTree = "<group>"; };
 		65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_center_point@2x.png"; sourceTree = "<group>"; };
 		65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_paopao_middle_left_highlighted@2x.png"; sourceTree = "<group>"; };
 		65C007DE1CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_paopao_middle_left@2x.png"; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				6502F1D51CAA256D00CB1512 /* hand_drawing_map_list.json */,
+				65B5D4721CAD224A00A3D6FE /* mock_location_list.json */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65B5D4731CAD224A00A3D6FE /* mock_location_list.json in Resources */,
 				658C35D31CACB4E900248C3B /* Chinese_Speech_Male.dat in Resources */,
 				658C35D71CACB4E900248C3B /* English_Text.dat in Resources */,
 				652E8B451C856FE40003C7D9 /* LaunchScreen.storyboard in Resources */,

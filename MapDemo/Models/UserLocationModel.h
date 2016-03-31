@@ -8,6 +8,9 @@
 
 #import "ISSJSONModel.h"
 
+@protocol UserLocationModel <NSObject>
+@end
+
 @interface UserLocationModel : ISSJSONModel
 @property (nonatomic, assign) CGFloat lat;
 @property (nonatomic, assign) CGFloat lng;

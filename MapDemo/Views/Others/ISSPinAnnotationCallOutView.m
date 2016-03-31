@@ -7,7 +7,6 @@
 //
 
 #import "ISSPinAnnotationCallOutView.h"
-#import "UITool.h"
 #import "ISSPinAnnotation.h"
 
 const CGFloat ISSMapViewAnnotationCalloutAnchorYOffset = 30.0f;
