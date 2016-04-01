@@ -39,6 +39,8 @@ typedef NS_ENUM(NSInteger, ISSLocationType)
 #define kBaiduTTSApiKey                 kBaiduMapKey
 #define kBaiduTTSSecretKey              @"3zQ9Kvg58yLr29WNeFkoTqg9aY9qQ33x"
 
+#define PGY_APP_ID                      @"84f3257c9ab6bb3ff9f0e350a72583be"
+
 #define NOTIFICATION_LOCATION_UPDATED   @"notification_user_location_updated"
 
 #endif /* MapDemo_prefix_pch */

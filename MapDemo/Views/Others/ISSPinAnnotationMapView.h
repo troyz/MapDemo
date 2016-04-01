@@ -17,4 +17,5 @@
 @interface ISSPinAnnotationMapView : NAPinAnnotationMapView
 @property (nonatomic, strong) ISSPinAnnotationCallOutView *calloutView;
 @property (nonatomic, weak) id<ISSPinAnnotationMapViewDelegate> mapDelegate;
+- (void)hideCallOut;
 @end

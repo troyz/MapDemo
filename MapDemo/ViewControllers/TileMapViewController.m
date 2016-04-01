@@ -107,7 +107,7 @@
     //    mapView.displayTileBorders = YES;
     
 //    mapView.backgroundColor  = [UIColor colorWithRed:0.000f green:0.475f blue:0.761f alpha:1.000f];
-    self.view.backgroundColor = RGBColor(194, 222, 215);
+//    self.view.backgroundColor = RGBColor(194, 222, 215);
     mapView.zoomStep = 3.0f;
     
     [self.view addSubview:mapView];
@@ -403,6 +403,7 @@
 
 - (void)mockButtonTapped
 {
+    [mapView hideCallOut];
     mockIndex = (mockIndex + 1) % mockLocList.count;
     UserLocationModel *mockItem = [mockLocList objectAtIndex:mockIndex];
     UserLocationModel *userLocItem = [UserLocationModel get];

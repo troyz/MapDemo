@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
+#import <PgyUpdate/PgyUpdateManager.h>
 
 @interface AppDelegate ()
 {
@@ -34,6 +35,9 @@
     
     locService = [[BMKLocationService alloc] init];
     [self startLocation];
+    
+    [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:PGY_APP_ID];
+    [[PgyUpdateManager sharedPgyManager] checkUpdate];
     
     return YES;
 }
