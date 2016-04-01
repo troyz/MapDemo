@@ -46,7 +46,6 @@
 		658D4D891CACFAF900431778 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D4D881CACFAF900431778 /* BaiduMapAPI_Utils.framework */; };
 		658D4D8E1CAD00D800431778 /* NSString+Addtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 658D4D8D1CAD00D800431778 /* NSString+Addtions.m */; };
 		65A481CC1CAE0E0200C17A17 /* PgyUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A481CB1CAE0E0200C17A17 /* PgyUpdate.framework */; };
-		65A481D01CAE11A500C17A17 /* yugudong.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A481CF1CAE11A500C17A17 /* yugudong.json */; };
 		65A481D81CAE248900C17A17 /* yugudong.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65A481D71CAE248900C17A17 /* yugudong.jpg */; };
 		65A481DC1CAE456800C17A17 /* MapListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A481DB1CAE456800C17A17 /* MapListViewController.m */; };
 		65B5D4731CAD224A00A3D6FE /* mock_location_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 65B5D4721CAD224A00A3D6FE /* mock_location_list.json */; };
@@ -131,7 +130,6 @@
 		658D4D8C1CAD00D800431778 /* NSString+Addtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Addtions.h"; sourceTree = "<group>"; };
 		658D4D8D1CAD00D800431778 /* NSString+Addtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Addtions.m"; sourceTree = "<group>"; };
 		65A481CB1CAE0E0200C17A17 /* PgyUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgyUpdate.framework; sourceTree = "<group>"; };
-		65A481CF1CAE11A500C17A17 /* yugudong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yugudong.json; sourceTree = "<group>"; };
 		65A481D71CAE248900C17A17 /* yugudong.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yugudong.jpg; sourceTree = "<group>"; };
 		65A481DA1CAE456800C17A17 /* MapListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapListViewController.h; sourceTree = "<group>"; };
 		65A481DB1CAE456800C17A17 /* MapListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapListViewController.m; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 			children = (
 				6502F1D51CAA256D00CB1512 /* hand_drawing_map_list.json */,
 				65B5D4721CAD224A00A3D6FE /* mock_location_list.json */,
-				65A481CF1CAE11A500C17A17 /* yugudong.json */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -580,7 +577,6 @@
 				65C007E51CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png in Resources */,
 				65C007E71CAB6D8F002983D6 /* icon_paopao_middle_right_highlighted@2x.png in Resources */,
 				658C35CB1CACB47100248C3B /* bdtts_license.dat in Resources */,
-				65A481D01CAE11A500C17A17 /* yugudong.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

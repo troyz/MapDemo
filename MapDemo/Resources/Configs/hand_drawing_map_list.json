@@ -7,7 +7,7 @@
   "zoomRate": 0.44,
   "minTileLevel": 9,
   "maxTileLevel": 11,
-
+  "tileImageFolder": "/Maps/bailixia",
   "locationList":
   [
    {
