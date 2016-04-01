@@ -9,11 +9,11 @@
 #import "TileMapViewController.h"
 #import "ISSTiledImageMapView.h"
 #import "ISSPinAnnotation.h"
-#import "MapLocationItemModel.h"
-#import "FileUtil.h"
 #import <ARTiledImageView/ARLocalTiledImageDataSource.h>
+#import <ARTiledImageView/ARWebTiledImageDataSource.h>
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
 #import "BDSSpeechSynthesizer.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 // 如果距离小于200米，则播报
 #define MAX_NEAR_BY_DISTANCE                200
@@ -23,12 +23,11 @@
 
 @interface TileMapViewController ()<ISSPinAnnotationMapViewDelegate, BDSSpeechSynthesizerDelegate>
 {
-    ISSTiledImageMapView *mapView;
+    ISSPinAnnotationMapView *mapView;
     UIButton *soundBtnView;
     
     BMKMapPoint leftTopCoor;
-    MapItemModel *mapItem;
-    ARLocalTiledImageDataSource *dataSource;
+    NSObject <ARTiledImageViewDataSource> *dataSource;
     NSMutableArray *pinList;
     ISSPinAnnotation *currentLocPinAnnotation;
     // 最近一次播报的景点index
@@ -43,6 +42,8 @@
 @end
 
 @implementation TileMapViewController
+
+@synthesize mapItem;
 
 - (void)viewDidLoad
 {
@@ -61,25 +62,49 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [mapView zoomToFit:animated];
+    if([mapView isKindOfClass:[ISSTiledImageMapView class]])
+    {
+        [((ISSTiledImageMapView *)mapView) zoomToFit:animated];
+    }
 }
 
 - (void)initVariables
 {
     lastNearIndex = -1;
     
-    mapItem = [[MapItemModel arrayOfModelsFromData:[FileUtil readFileFromPath:@"hand_drawing_map_list.json"] error:nil] objectAtIndex:0];
+//    mapItem = [[MapItemModel arrayOfModelsFromData:[FileUtil readFileFromPath:@"yugudong.json"] error:nil] objectAtIndex:0];
     
     leftTopCoor = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(mapItem.topLeftLat, mapItem.topLeftLng));
     
-    dataSource = [[ARLocalTiledImageDataSource alloc] init];
-    dataSource.maxTiledHeight = mapItem.originalImageHeight;
-    dataSource.maxTiledWidth = mapItem.originalImageWidth;
-    dataSource.minTileLevel = mapItem.minTileLevel;
-    dataSource.maxTileLevel = mapItem.maxTileLevel;
-    dataSource.tileSize = mapItem.tileSize;
-    dataSource.tileFormat = @"jpg";
-    dataSource.tileBasePath = [NSString stringWithFormat:@"%@/Maps/bailixia", [NSBundle mainBundle].resourcePath];
+    if([mapItem hasTiles])
+    {
+        // 瓦片在服务端
+        if([mapItem isRemoteTiles])
+        {
+            ARWebTiledImageDataSource *_dataSource = [[ARWebTiledImageDataSource alloc] init];
+            _dataSource.maxTiledHeight = mapItem.originalImageHeight;
+            _dataSource.maxTiledWidth = mapItem.originalImageWidth;
+            _dataSource.minTileLevel = mapItem.minTileLevel;
+            _dataSource.maxTileLevel = mapItem.maxTileLevel;
+            _dataSource.tileSize = mapItem.tileSize;
+            _dataSource.tileFormat = @"jpg";
+            _dataSource.tileBaseURL = [NSURL URLWithString:mapItem.tileImageFolder];
+            dataSource = _dataSource;
+        }
+        // 瓦片在本地
+        else
+        {
+            ARLocalTiledImageDataSource *_dataSource = [[ARLocalTiledImageDataSource alloc] init];
+            _dataSource.maxTiledHeight = mapItem.originalImageHeight;
+            _dataSource.maxTiledWidth = mapItem.originalImageWidth;
+            _dataSource.minTileLevel = mapItem.minTileLevel;
+            _dataSource.maxTileLevel = mapItem.maxTileLevel;
+            _dataSource.tileSize = mapItem.tileSize;
+            _dataSource.tileFormat = @"jpg";
+            _dataSource.tileBasePath = mapItem.tileImageFolder;
+            dataSource = _dataSource;
+        }
+    }
     
     pinList = [[NSMutableArray alloc] init];
     
@@ -101,13 +126,26 @@
 
 - (void)initMapView
 {
-    mapView = [[ISSTiledImageMapView alloc] initWithFrame:self.view.bounds tiledImageDataSource:dataSource];
+    // 瓦片地图
+    if([mapItem hasTiles])
+    {
+        mapView = [[ISSTiledImageMapView alloc] initWithFrame:self.view.bounds tiledImageDataSource:dataSource];
+    }
+    // 本地地图
+    else
+    {
+        mapView = [[ISSPinAnnotationMapView alloc] initWithFrame:self.view.bounds];
+        mapView.minimumZoomScale = 0.1f;
+        mapView.maximumZoomScale = 2.5f;
+        
+        UIImage *image = [UIImage imageWithContentsOfFile:mapItem.localImageFullPath];
+        [mapView displayMap:image];
+        mapView.zoomScale = [[UIScreen mainScreen] bounds].size.width / image.size.width;
+        mapView.minimumZoomScale = mapView.minimumZoomScale < mapView.zoomScale ? mapView.zoomScale : mapView.minimumZoomScale;
+    }
     mapView.mapDelegate = self;
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    //    mapView.displayTileBorders = YES;
     
-//    mapView.backgroundColor  = [UIColor colorWithRed:0.000f green:0.475f blue:0.761f alpha:1.000f];
-//    self.view.backgroundColor = RGBColor(194, 222, 215);
     mapView.zoomStep = 3.0f;
     
     [self.view addSubview:mapView];

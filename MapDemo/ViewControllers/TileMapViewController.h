@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapLocationItemModel.h"
 
 @interface TileMapViewController : UIViewController
-
+@property (nonatomic, strong) MapItemModel *mapItem;
 @end

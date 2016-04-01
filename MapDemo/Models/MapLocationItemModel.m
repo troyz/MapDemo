@@ -45,4 +45,23 @@
     }
     return @"";
 }
+
+- (void)setTileImageFolder:(NSString *)tileImageFolder
+{
+    _tileImageFolder = tileImageFolder;
+    if(tileImageFolder && ![tileImageFolder isUrl])
+    {
+        _tileImageFolder = [NSString stringWithFormat:@"%@%@", [NSBundle mainBundle].resourcePath, tileImageFolder];
+    }
+}
+
+- (BOOL)isRemoteTiles
+{
+    return [_tileImageFolder isUrl];
+}
+
+- (BOOL)hasTiles
+{
+    return ![SysUtil emptyString:_tileImageFolder];
+}
 @end

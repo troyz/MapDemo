@@ -46,8 +46,9 @@
 		658D4D891CACFAF900431778 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D4D881CACFAF900431778 /* BaiduMapAPI_Utils.framework */; };
 		658D4D8E1CAD00D800431778 /* NSString+Addtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 658D4D8D1CAD00D800431778 /* NSString+Addtions.m */; };
 		65A481CC1CAE0E0200C17A17 /* PgyUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A481CB1CAE0E0200C17A17 /* PgyUpdate.framework */; };
-		65A481CE1CAE115100C17A17 /* yugudong.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65A481CD1CAE115100C17A17 /* yugudong.jpg */; };
 		65A481D01CAE11A500C17A17 /* yugudong.json in Resources */ = {isa = PBXBuildFile; fileRef = 65A481CF1CAE11A500C17A17 /* yugudong.json */; };
+		65A481D81CAE248900C17A17 /* yugudong.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65A481D71CAE248900C17A17 /* yugudong.jpg */; };
+		65A481DC1CAE456800C17A17 /* MapListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A481DB1CAE456800C17A17 /* MapListViewController.m */; };
 		65B5D4731CAD224A00A3D6FE /* mock_location_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 65B5D4721CAD224A00A3D6FE /* mock_location_list.json */; };
 		65C007E41CAB6D8F002983D6 /* icon_center_point@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */; };
 		65C007E51CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */; };
@@ -130,8 +131,10 @@
 		658D4D8C1CAD00D800431778 /* NSString+Addtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Addtions.h"; sourceTree = "<group>"; };
 		658D4D8D1CAD00D800431778 /* NSString+Addtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Addtions.m"; sourceTree = "<group>"; };
 		65A481CB1CAE0E0200C17A17 /* PgyUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgyUpdate.framework; sourceTree = "<group>"; };
-		65A481CD1CAE115100C17A17 /* yugudong.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yugudong.jpg; sourceTree = "<group>"; };
 		65A481CF1CAE11A500C17A17 /* yugudong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yugudong.json; sourceTree = "<group>"; };
+		65A481D71CAE248900C17A17 /* yugudong.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yugudong.jpg; sourceTree = "<group>"; };
+		65A481DA1CAE456800C17A17 /* MapListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapListViewController.h; sourceTree = "<group>"; };
+		65A481DB1CAE456800C17A17 /* MapListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapListViewController.m; sourceTree = "<group>"; };
 		65B5D4721CAD224A00A3D6FE /* mock_location_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_location_list.json; sourceTree = "<group>"; };
 		65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_center_point@2x.png"; sourceTree = "<group>"; };
 		65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_paopao_middle_left_highlighted@2x.png"; sourceTree = "<group>"; };
@@ -329,7 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				6502F1D21CAA24D200CB1512 /* bailixia.jpg */,
-				65A481CD1CAE115100C17A17 /* yugudong.jpg */,
+				65A481D71CAE248900C17A17 /* yugudong.jpg */,
 				65C008211CABD458002983D6 /* temp.png */,
 				65C007DC1CAB6D8F002983D6 /* icon_center_point@2x.png */,
 				65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */,
@@ -424,6 +427,19 @@
 			path = Pgyer;
 			sourceTree = "<group>";
 		};
+		65A481D91CAE453A00C17A17 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				65D8347A1CAA52410032B6D1 /* MapViewController.h */,
+				65D8347B1CAA52410032B6D1 /* MapViewController.m */,
+				65D8347D1CAA52900032B6D1 /* TileMapViewController.h */,
+				65D8347E1CAA52900032B6D1 /* TileMapViewController.m */,
+				65110EF11CAA68280046FEC5 /* WebTileMapViewController.h */,
+				65110EF21CAA68280046FEC5 /* WebTileMapViewController.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		65C007EE1CAB7451002983D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,12 +476,9 @@
 		65D834791CAA52410032B6D1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				65D8347A1CAA52410032B6D1 /* MapViewController.h */,
-				65D8347B1CAA52410032B6D1 /* MapViewController.m */,
-				65D8347D1CAA52900032B6D1 /* TileMapViewController.h */,
-				65D8347E1CAA52900032B6D1 /* TileMapViewController.m */,
-				65110EF11CAA68280046FEC5 /* WebTileMapViewController.h */,
-				65110EF21CAA68280046FEC5 /* WebTileMapViewController.m */,
+				65A481D91CAE453A00C17A17 /* Map */,
+				65A481DA1CAE456800C17A17 /* MapListViewController.h */,
+				65A481DB1CAE456800C17A17 /* MapListViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -546,9 +559,9 @@
 				65C007E61CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png in Resources */,
 				65C008081CABAA34002983D6 /* btn_sound_nomal@2x.png in Resources */,
 				65D834811CAA543B0032B6D1 /* Maps in Resources */,
+				65A481D81CAE248900C17A17 /* yugudong.jpg in Resources */,
 				652E8B421C856FE40003C7D9 /* Assets.xcassets in Resources */,
 				6502F1D31CAA24D200CB1512 /* bailixia.jpg in Resources */,
-				65A481CE1CAE115100C17A17 /* yugudong.jpg in Resources */,
 				65C007E81CAB6D8F002983D6 /* icon_paopao_middle_right@2x.png in Resources */,
 				65C0080A1CABAA34002983D6 /* db_poi_depot@2x.png in Resources */,
 				65C0080D1CABAA34002983D6 /* db_poi_toilet@2x.png in Resources */,
@@ -639,6 +652,7 @@
 				6502F1DD1CAA29F100CB1512 /* SysUtil.m in Sources */,
 				65D8347F1CAA52900032B6D1 /* TileMapViewController.m in Sources */,
 				6502F1CD1CAA22E000CB1512 /* ISSJSONModel.m in Sources */,
+				65A481DC1CAE456800C17A17 /* MapListViewController.m in Sources */,
 				65C008251CABD4D5002983D6 /* UITool.m in Sources */,
 				65D8347C1CAA52410032B6D1 /* MapViewController.m in Sources */,
 				65C008101CABACAC002983D6 /* ISSPinAnnotation.m in Sources */,
