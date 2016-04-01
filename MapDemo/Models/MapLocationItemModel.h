@@ -29,6 +29,9 @@
 // 原始图片尺寸
 @property (nonatomic, assign) NSInteger originalImageWidth;
 @property (nonatomic, assign) NSInteger originalImageHeight;
+@property (nonatomic, assign) NSInteger minTileLevel;
+@property (nonatomic, assign) NSInteger maxTileLevel;
+@property (nonatomic, assign) NSInteger tileSize;
 @property (nonatomic, strong) NSMutableArray<MapLocationItemModel> *locationList;
 // 如果是本地图片的话，返回图片本地全路径，
 - (NSString *)localImageFullPath;

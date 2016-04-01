@@ -4,6 +4,8 @@
   "topLeftLat": 39.6903851,
   "topLeftLng": 115.391619,
   "zoomRate": 0.44,
+  "minTileLevel": 9,
+  "maxTileLevel": 11,
   "locationList":
   [
    {

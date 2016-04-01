@@ -14,6 +14,15 @@
 @end
 
 @implementation MapItemModel
+- (instancetype)init
+{
+    self = [super init];
+    if(self)
+    {
+        _tileSize = 256;
+    }
+    return self;
+}
 - (void)setImgName:(NSString *)imgName
 {
     _imgName = imgName;

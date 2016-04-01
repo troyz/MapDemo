@@ -75,9 +75,9 @@
     dataSource = [[ARLocalTiledImageDataSource alloc] init];
     dataSource.maxTiledHeight = mapItem.originalImageHeight;
     dataSource.maxTiledWidth = mapItem.originalImageWidth;
-    dataSource.minTileLevel = 9;
-    dataSource.maxTileLevel = 11;
-    dataSource.tileSize = 256;
+    dataSource.minTileLevel = mapItem.minTileLevel;
+    dataSource.maxTileLevel = mapItem.maxTileLevel;
+    dataSource.tileSize = mapItem.tileSize;
     dataSource.tileFormat = @"jpg";
     dataSource.tileBasePath = [NSString stringWithFormat:@"%@/Maps/bailixia", [NSBundle mainBundle].resourcePath];
     
