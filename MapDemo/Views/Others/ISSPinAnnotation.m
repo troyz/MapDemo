@@ -20,8 +20,9 @@ const CGFloat ISSMapViewPinAnimationDuration = 0.5f;
 - (id)initWithPoint:(CGPoint)point
 {
     self = [super initWithPoint:point];
-    if (self) {
-        self.locType = LOC_TYPE_TICKET;
+    if (self)
+    {
+        self.locType = LOC_TYPE_SCENIC;
         self.title = nil;
     }
     return self;

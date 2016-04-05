@@ -18,9 +18,6 @@
 // 如果距离小于200米，则播报
 #define MAX_NEAR_BY_DISTANCE                200
 
-// 是否模拟导航
-#define IS_MOCK_NAVIGATION                  1
-
 @interface TileMapViewController ()<ISSPinAnnotationMapViewDelegate, BDSSpeechSynthesizerDelegate>
 {
     ISSPinAnnotationMapView *mapView;
@@ -35,7 +32,7 @@
     BOOL isSoundAutoPlayDisabled;
 #ifdef IS_MOCK_NAVIGATION
     UIButton *mockNavBtnView;
-    NSMutableArray *mockLocList;
+//    NSMutableArray *mockLocList;
     NSInteger mockIndex;
 #endif
 }
@@ -44,6 +41,9 @@
 @implementation TileMapViewController
 
 @synthesize mapItem;
+#ifdef IS_MOCK_NAVIGATION
+@synthesize mockLocList;
+#endif
 
 - (void)viewDidLoad
 {
@@ -66,6 +66,14 @@
     {
         [((ISSTiledImageMapView *)mapView) zoomToFit:animated];
     }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+#ifdef IS_MOCK_NAVIGATION
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(mockButtonTapped) object:nil];
+#endif
 }
 
 - (void)initVariables
@@ -110,8 +118,8 @@
     
 #ifdef IS_MOCK_NAVIGATION
     mockIndex = -1;
-    mockLocList = [[NSMutableArray alloc] init];
-    mockLocList = [UserLocationModel arrayOfModelsFromData:[FileUtil readFileFromPath:@"mock_location_list.json"] error:nil];
+//    mockLocList = [[NSMutableArray alloc] init];
+//    mockLocList = [UserLocationModel arrayOfModelsFromData:[FileUtil readFileFromPath:@"mock_location_list.json"] error:nil];
 #endif
 }
 
@@ -441,6 +449,8 @@
 
 - (void)mockButtonTapped
 {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(mockButtonTapped) object:nil];
+    
     [mapView hideCallOut];
     mockIndex = (mockIndex + 1) % mockLocList.count;
     UserLocationModel *mockItem = [mockLocList objectAtIndex:mockIndex];
@@ -449,12 +459,20 @@
     userLocItem.lng = mockItem.lng;
     [userLocItem save];
     [self userLocationUpdatedNotify];
+    
+    if(mockIndex != mockLocList.count - 1)
+    {
+        [self performSelector:@selector(mockButtonTapped) withObject:nil afterDelay:5];
+    }
 }
 #endif
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+#ifdef IS_MOCK_NAVIGATION
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(mockButtonTapped) object:nil];
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -473,3 +491,9 @@
 */
 
 @end
+
+
+#ifdef IS_MOCK_NAVIGATION
+@implementation MockLocationModel
+@end
+#endif

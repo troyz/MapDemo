@@ -9,6 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "MapLocationItemModel.h"
 
+#ifdef IS_MOCK_NAVIGATION
+@protocol MockLocationModel
+@end
+
+@interface MockLocationModel : ISSJSONModel
+@property (nonatomic, strong) NSMutableArray<UserLocationModel> *mocList;
+@end
+#endif
+
 @interface TileMapViewController : UIViewController
 @property (nonatomic, strong) MapItemModel *mapItem;
+#ifdef IS_MOCK_NAVIGATION
+@property (nonatomic, strong) NSMutableArray<UserLocationModel> *mockLocList;
+#endif
 @end

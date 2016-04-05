@@ -45,7 +45,7 @@ const CGFloat ISSMapViewAnnotationPinPointY = 36.0f;
         case LOC_TYPE_DEPOT:
             pinImageName = @"db_poi_depot";
             break;
-        case LOC_TYPE_MUSEUM:
+        case LOC_TYPE_SCENIC:
             pinImageName = @"db_poi_museum";
             break;
         case LOC_TYPE_TOILET:

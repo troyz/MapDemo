@@ -13,6 +13,9 @@
 @interface MapListViewController ()
 {
     NSMutableArray *dataList;
+#ifdef IS_MOCK_NAVIGATION
+    NSMutableArray<MockLocationModel> *mocGroupList;
+#endif
 }
 @end
 
@@ -28,6 +31,9 @@
 - (void)initVariables
 {
     dataList = [MapItemModel arrayOfModelsFromData:[FileUtil readFileFromPath:@"hand_drawing_map_list.json"] error:nil];
+#ifdef IS_MOCK_NAVIGATION
+    mocGroupList = (NSMutableArray<MockLocationModel> *)[MockLocationModel arrayOfModelsFromData:[FileUtil readFileFromPath:@"mock_location_list.json"] error:nil];
+#endif
     self.navigationItem.title = @"导游导览";
 }
 
@@ -67,6 +73,9 @@
     {
         TileMapViewController *viewController = (TileMapViewController *)segue.destinationViewController;
         viewController.mapItem = dataList[indexPath.row];
+#ifdef IS_MOCK_NAVIGATION
+        viewController.mockLocList = ((MockLocationModel *)mocGroupList[indexPath.row]).mocList;
+#endif
     }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     // Get the new view controller using [segue destinationViewController].

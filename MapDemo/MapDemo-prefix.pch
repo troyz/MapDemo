@@ -22,10 +22,10 @@
 // 景点类型
 typedef NS_ENUM(NSInteger, ISSLocationType)
 {
-    LOC_TYPE_TICKET = 0,    // 景区
+    LOC_TYPE_SCENIC = 0,    // 景区
     LOC_TYPE_BAR    = 1,    // 酒吧
     LOC_TYPE_DEPOT  = 2,    // 车站
-    LOC_TYPE_MUSEUM = 3,    // 博物馆
+    LOC_TYPE_TICKET = 3,    // 售票处
     LOC_TYPE_TOILET = 4,    // 厕所
     LOC_TYPE_CURRENT= 5,    // 当前位置
 };
@@ -44,5 +44,8 @@ typedef NS_ENUM(NSInteger, ISSLocationType)
 #define PGY_APP_ID                      @"84f3257c9ab6bb3ff9f0e350a72583be"
 
 #define NOTIFICATION_LOCATION_UPDATED   @"notification_user_location_updated"
+
+// 是否模拟导航
+#define IS_MOCK_NAVIGATION              1
 
 #endif /* MapDemo_prefix_pch */
