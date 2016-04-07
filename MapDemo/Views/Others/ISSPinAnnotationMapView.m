@@ -88,7 +88,7 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     
 //    CGFloat animationDuration = animated ? ISSMapViewAnnotationCalloutAnimationDuration : 0.0f;
     
-//    self.calloutView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4f, 0.4f);
+    self.calloutView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1f, 0.1f);
     self.calloutView.hidden = NO;
     
 //    __weak typeof(self) weakSelf = self;
@@ -97,7 +97,7 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 //    }];
     
     POPSpringAnimation *scaleAnimatin = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-    scaleAnimatin.fromValue = [NSValue valueWithCGSize:CGSizeZero];
+    scaleAnimatin.toValue = [NSValue valueWithCGSize:CGSizeMake(1, 1)];
     scaleAnimatin.springBounciness = 12;
     [self.calloutView.layer pop_addAnimation:scaleAnimatin forKey:@"scaleAnimatin"];
 }
