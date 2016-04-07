@@ -10,6 +10,7 @@
 #import "NAPinAnnotation.h"
 #import "NAPinAnnotationView.h"
 #import "ISSPinAnnotationView.h"
+#import <pop/POP.h>
 
 const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 
@@ -85,15 +86,20 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     
     //    [self centerOnPoint:annotation.point animated:animated];
     
-    CGFloat animationDuration = animated ? ISSMapViewAnnotationCalloutAnimationDuration : 0.0f;
+//    CGFloat animationDuration = animated ? ISSMapViewAnnotationCalloutAnimationDuration : 0.0f;
     
-    self.calloutView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4f, 0.4f);
+//    self.calloutView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.4f, 0.4f);
     self.calloutView.hidden = NO;
     
-    __weak typeof(self) weakSelf = self;
-    [UIView animateWithDuration:animationDuration animations:^{
-        weakSelf.calloutView.transform = CGAffineTransformIdentity;
-    }];
+//    __weak typeof(self) weakSelf = self;
+//    [UIView animateWithDuration:animationDuration animations:^{
+//        weakSelf.calloutView.transform = CGAffineTransformIdentity;
+//    }];
+    
+    POPSpringAnimation *scaleAnimatin = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleAnimatin.fromValue = [NSValue valueWithCGSize:CGSizeZero];
+    scaleAnimatin.springBounciness = 12;
+    [self.calloutView.layer pop_addAnimation:scaleAnimatin forKey:@"scaleAnimatin"];
 }
 
 - (void)hideCallOut

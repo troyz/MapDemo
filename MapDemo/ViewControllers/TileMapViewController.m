@@ -138,6 +138,7 @@
     if([mapItem hasTiles])
     {
         mapView = [[ISSTiledImageMapView alloc] initWithFrame:self.view.bounds tiledImageDataSource:dataSource];
+        mapView.maximumZoomScale = (mapView.maximumZoomScale > 2.5f ? mapView.maximumZoomScale : 2.5f);
     }
     // 本地地图
     else
