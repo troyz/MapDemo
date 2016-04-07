@@ -98,7 +98,7 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     
     POPSpringAnimation *scaleAnimatin = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
     scaleAnimatin.toValue = [NSValue valueWithCGSize:CGSizeMake(1, 1)];
-    scaleAnimatin.springBounciness = 12;
+    scaleAnimatin.springBounciness = 16;
     [self.calloutView.layer pop_addAnimation:scaleAnimatin forKey:@"scaleAnimatin"];
 }
 
