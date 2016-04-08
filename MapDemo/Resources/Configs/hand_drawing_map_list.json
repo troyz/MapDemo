@@ -77,13 +77,13 @@
   {
   "imgName": "yugudong.jpg",
   "scenicName": "鱼骨洞",
-  "topLeftLat": 39.769957,
-  "topLeftLng": 115.415176,
+  "topLeftLat": 39.770055,
+  "topLeftLng": 115.41445,
   "zoomRate": 1.991150442477876,
   "minTileLevel": 10,
   "maxTileLevel": 12,
-  "originalImageWidth": 2067,
-  "originalImageHeight": 1661,
+  "originalImageWidth": 2539,
+  "originalImageHeight": 1594,
   "tileImageFolder": "/Maps/yugudong",
   "locationList":
   [

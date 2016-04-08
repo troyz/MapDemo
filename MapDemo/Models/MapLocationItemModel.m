@@ -49,7 +49,7 @@
 - (void)setTileImageFolder:(NSString *)tileImageFolder
 {
     _tileImageFolder = tileImageFolder;
-    if(tileImageFolder && ![tileImageFolder isUrl])
+    if(![SysUtil emptyString:tileImageFolder] && ![tileImageFolder isUrl])
     {
         _tileImageFolder = [NSString stringWithFormat:@"%@%@", [NSBundle mainBundle].resourcePath, tileImageFolder];
     }
