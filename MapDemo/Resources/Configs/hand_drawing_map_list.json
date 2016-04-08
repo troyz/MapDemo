@@ -7,6 +7,8 @@
   "zoomRate": 0.44,
   "minTileLevel": 9,
   "maxTileLevel": 11,
+  "originalImageWidth": 1080,
+  "originalImageHeight": 1920,
   "tileImageFolder": "/Maps/bailixia",
   "locationList":
   [
@@ -80,6 +82,8 @@
   "zoomRate": 1.991150442477876,
   "minTileLevel": 10,
   "maxTileLevel": 12,
+  "originalImageWidth": 2067,
+  "originalImageHeight": 1661,
   "tileImageFolder": "/Maps/yugudong",
   "locationList":
   [
