@@ -468,16 +468,10 @@
 		65C007F01CAB7451002983D6 /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				65C0080E1CABACAC002983D6 /* ISSPinAnnotation.h */,
-				65C0080F1CABACAC002983D6 /* ISSPinAnnotation.m */,
-				65C008111CABAD0E002983D6 /* ISSPinAnnotationView.h */,
-				65C008121CABAD0E002983D6 /* ISSPinAnnotationView.m */,
-				65C008181CABB596002983D6 /* ISSPinAnnotationMapView.h */,
-				65C008191CABB596002983D6 /* ISSPinAnnotationMapView.m */,
-				65C0081B1CABB5F0002983D6 /* ISSTiledImageMapView.h */,
-				65C0081C1CABB5F0002983D6 /* ISSTiledImageMapView.m */,
-				65C0081E1CABB697002983D6 /* ISSPinAnnotationCallOutView.h */,
-				65C0081F1CABB697002983D6 /* ISSPinAnnotationCallOutView.m */,
+				65FEC86A1CBB79DC0019D9E5 /* PopupView */,
+				65FEC8671CBB79A20019D9E5 /* Annotation */,
+				65FEC8691CBB79B40019D9E5 /* AnnotationView */,
+				65FEC8681CBB79AB0019D9E5 /* MapView */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -490,6 +484,44 @@
 				65A481DB1CAE456800C17A17 /* MapListViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		65FEC8671CBB79A20019D9E5 /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				65C0080E1CABACAC002983D6 /* ISSPinAnnotation.h */,
+				65C0080F1CABACAC002983D6 /* ISSPinAnnotation.m */,
+			);
+			name = Annotation;
+			sourceTree = "<group>";
+		};
+		65FEC8681CBB79AB0019D9E5 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				65C008181CABB596002983D6 /* ISSPinAnnotationMapView.h */,
+				65C008191CABB596002983D6 /* ISSPinAnnotationMapView.m */,
+				65C0081B1CABB5F0002983D6 /* ISSTiledImageMapView.h */,
+				65C0081C1CABB5F0002983D6 /* ISSTiledImageMapView.m */,
+			);
+			name = MapView;
+			sourceTree = "<group>";
+		};
+		65FEC8691CBB79B40019D9E5 /* AnnotationView */ = {
+			isa = PBXGroup;
+			children = (
+				65C008111CABAD0E002983D6 /* ISSPinAnnotationView.h */,
+				65C008121CABAD0E002983D6 /* ISSPinAnnotationView.m */,
+			);
+			name = AnnotationView;
+			sourceTree = "<group>";
+		};
+		65FEC86A1CBB79DC0019D9E5 /* PopupView */ = {
+			isa = PBXGroup;
+			children = (
+				65C0081E1CABB697002983D6 /* ISSPinAnnotationCallOutView.h */,
+				65C0081F1CABB697002983D6 /* ISSPinAnnotationCallOutView.m */,
+			);
+			name = PopupView;
 			sourceTree = "<group>";
 		};
 		B7439924FB7E94431F88D604 /* Pods */ = {
