@@ -74,7 +74,22 @@
         TileMapViewController *viewController = (TileMapViewController *)segue.destinationViewController;
         viewController.mapItem = dataList[indexPath.row];
 #ifdef IS_MOCK_NAVIGATION
-        viewController.mockLocList = ((MockLocationModel *)mocGroupList[indexPath.row]).mocList;
+        if(indexPath.row < mocGroupList.count)
+        {
+            viewController.mockLocList = ((MockLocationModel *)mocGroupList[indexPath.row]).mocList;
+        }
+        if(!viewController.mockLocList || !viewController.mockLocList.count)
+        {
+            NSMutableArray<UserLocationModel> *mockLocList = (NSMutableArray<UserLocationModel> *)[[NSMutableArray alloc] init];
+            for(MapLocationItemModel *item in viewController.mapItem.locationList)
+            {
+                UserLocationModel *locItem = [[UserLocationModel alloc] init];
+                locItem.lat = item.lat;
+                locItem.lng = item.lng;
+                [mockLocList addObject:locItem];
+            }
+            viewController.mockLocList = mockLocList;
+        }
 #endif
     }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];

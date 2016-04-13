@@ -1,6 +1,6 @@
  [
   {
-  "imgName": "bailixia.jpg",
+  "imgName": "",
   "scenicName": "百里峡",
   "topLeftLat": 39.6903851,
   "topLeftLng": 115.391619,
@@ -75,7 +75,7 @@
    ]
   },
   {
-  "imgName": "yugudong.jpg",
+  "imgName": "",
   "scenicName": "鱼骨洞",
   "topLeftLat": 39.770055,
   "topLeftLng": 115.41445,
@@ -110,6 +110,39 @@
    "lat": 39.765648,
    "lng": 115.417641,
    "desc": "幽深的峡谷中，《三国演义》中曹操败走华容道外景拍摄地。"
+   }
+   ]
+  },
+  {
+  "imgName": "",
+  "scenicName": "溶洞漂流",
+  "topLeftLat": 39.706706,
+  "topLeftLng": 115.441111,
+  "zoomRate": 1.991150442477876,
+  "minTileLevel": 11,
+  "maxTileLevel": 13,
+  "originalImageWidth": 2555,
+  "originalImageHeight": 5177,
+  "tileImageFolder": "/Maps/jumaherongdongpiaoliu",
+  "locationList":
+  [
+   {
+   "name": "野三坡假日酒店",
+   "lat": 39.701509,
+   "lng": 115.448428,
+   "desc": "地址：保定涞水县三坡镇上庄村鱼东片11号"
+   },
+   {
+   "name": "三坡派出所",
+   "lat": 39.692538,
+   "lng": 115.449654,
+   "desc": "三坡派出所"
+   },
+   {
+   "name": "妮妮超市",
+   "lat": 39.689812,
+   "lng": 115.450965,
+   "desc": "妮妮超市"
    }
    ]
   }

@@ -80,6 +80,9 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 
 - (void)showCalloutForAnnotation:(NAPinAnnotation *)annotation animated:(BOOL)animated
 {
+    NSLog(@"%f, %f", annotation.point.x, annotation.point.y);
+    [self convertPoint:annotation.point toView:self.superview];
+    
     [self hideCallOut];
     
     self.calloutView.annotation = annotation;

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6502F1CD1CAA22E000CB1512 /* ISSJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6502F1CC1CAA22E000CB1512 /* ISSJSONModel.m */; };
 		6502F1D11CAA230900CB1512 /* MapLocationItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6502F1D01CAA230900CB1512 /* MapLocationItemModel.m */; };
-		6502F1D31CAA24D200CB1512 /* bailixia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6502F1D21CAA24D200CB1512 /* bailixia.jpg */; };
 		6502F1D61CAA256D00CB1512 /* hand_drawing_map_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 6502F1D51CAA256D00CB1512 /* hand_drawing_map_list.json */; };
 		6502F1DA1CAA29E400CB1512 /* FileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6502F1D91CAA29E400CB1512 /* FileUtil.m */; };
 		6502F1DD1CAA29F100CB1512 /* SysUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6502F1DC1CAA29F100CB1512 /* SysUtil.m */; };
@@ -50,8 +49,8 @@
 		658D4D871CACF81000431778 /* UserLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 658D4D861CACF81000431778 /* UserLocationModel.m */; };
 		658D4D891CACFAF900431778 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 658D4D881CACFAF900431778 /* BaiduMapAPI_Utils.framework */; };
 		658D4D8E1CAD00D800431778 /* NSString+Addtions.m in Sources */ = {isa = PBXBuildFile; fileRef = 658D4D8D1CAD00D800431778 /* NSString+Addtions.m */; };
+		65A2D7D31CBC8A6900EDF656 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A2D7D21CBC8A6900EDF656 /* TestViewController.m */; };
 		65A481CC1CAE0E0200C17A17 /* PgyUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A481CB1CAE0E0200C17A17 /* PgyUpdate.framework */; };
-		65A481D81CAE248900C17A17 /* yugudong.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65A481D71CAE248900C17A17 /* yugudong.jpg */; };
 		65A481DC1CAE456800C17A17 /* MapListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A481DB1CAE456800C17A17 /* MapListViewController.m */; };
 		65B5D4731CAD224A00A3D6FE /* mock_location_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 65B5D4721CAD224A00A3D6FE /* mock_location_list.json */; };
 		65C007E51CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C007DD1CAB6D8F002983D6 /* icon_paopao_middle_left_highlighted@2x.png */; };
@@ -75,6 +74,7 @@
 		65D8347C1CAA52410032B6D1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D8347B1CAA52410032B6D1 /* MapViewController.m */; };
 		65D8347F1CAA52900032B6D1 /* TileMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D8347E1CAA52900032B6D1 /* TileMapViewController.m */; };
 		65D834811CAA543B0032B6D1 /* Maps in Resources */ = {isa = PBXBuildFile; fileRef = 65D834801CAA543B0032B6D1 /* Maps */; };
+		65FEC8841CBBAB350019D9E5 /* ISSCirclePinAnnotationCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FEC8831CBBAB350019D9E5 /* ISSCirclePinAnnotationCallOutView.m */; };
 		AEBBA4646C88CB258A9E543C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03852152DF4BECEF2D857F5B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +84,6 @@
 		6502F1CC1CAA22E000CB1512 /* ISSJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSJSONModel.m; sourceTree = "<group>"; };
 		6502F1CF1CAA230900CB1512 /* MapLocationItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLocationItemModel.h; sourceTree = "<group>"; };
 		6502F1D01CAA230900CB1512 /* MapLocationItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapLocationItemModel.m; sourceTree = "<group>"; };
-		6502F1D21CAA24D200CB1512 /* bailixia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bailixia.jpg; sourceTree = "<group>"; };
 		6502F1D51CAA256D00CB1512 /* hand_drawing_map_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hand_drawing_map_list.json; sourceTree = "<group>"; };
 		6502F1D81CAA29E400CB1512 /* FileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtil.h; sourceTree = "<group>"; };
 		6502F1D91CAA29E400CB1512 /* FileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtil.m; sourceTree = "<group>"; };
@@ -138,8 +137,9 @@
 		658D4D881CACFAF900431778 /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
 		658D4D8C1CAD00D800431778 /* NSString+Addtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Addtions.h"; sourceTree = "<group>"; };
 		658D4D8D1CAD00D800431778 /* NSString+Addtions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Addtions.m"; sourceTree = "<group>"; };
+		65A2D7D11CBC8A6900EDF656 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		65A2D7D21CBC8A6900EDF656 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		65A481CB1CAE0E0200C17A17 /* PgyUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgyUpdate.framework; sourceTree = "<group>"; };
-		65A481D71CAE248900C17A17 /* yugudong.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yugudong.jpg; sourceTree = "<group>"; };
 		65A481DA1CAE456800C17A17 /* MapListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapListViewController.h; sourceTree = "<group>"; };
 		65A481DB1CAE456800C17A17 /* MapListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapListViewController.m; sourceTree = "<group>"; };
 		65B5D4721CAD224A00A3D6FE /* mock_location_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_location_list.json; sourceTree = "<group>"; };
@@ -173,6 +173,8 @@
 		65D8347D1CAA52900032B6D1 /* TileMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMapViewController.h; sourceTree = "<group>"; };
 		65D8347E1CAA52900032B6D1 /* TileMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMapViewController.m; sourceTree = "<group>"; };
 		65D834801CAA543B0032B6D1 /* Maps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Maps; sourceTree = "<group>"; };
+		65FEC8821CBBAB350019D9E5 /* ISSCirclePinAnnotationCallOutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSCirclePinAnnotationCallOutView.h; sourceTree = "<group>"; };
+		65FEC8831CBBAB350019D9E5 /* ISSCirclePinAnnotationCallOutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSCirclePinAnnotationCallOutView.m; sourceTree = "<group>"; };
 		B218C060D914E82088A649EC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EB743F2C8069EE277EF17F3A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -336,8 +338,6 @@
 		652E8B6E1C857DB30003C7D9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				6502F1D21CAA24D200CB1512 /* bailixia.jpg */,
-				65A481D71CAE248900C17A17 /* yugudong.jpg */,
 				65685F911CB35F51007BFC50 /* zoomin_normal@2x.png */,
 				65685F921CB35F51007BFC50 /* zoomin_yes@2x.png */,
 				65685F931CB35F51007BFC50 /* zoomout_normal@2x.png */,
@@ -482,6 +482,8 @@
 				65A481D91CAE453A00C17A17 /* Map */,
 				65A481DA1CAE456800C17A17 /* MapListViewController.h */,
 				65A481DB1CAE456800C17A17 /* MapListViewController.m */,
+				65A2D7D11CBC8A6900EDF656 /* TestViewController.h */,
+				65A2D7D21CBC8A6900EDF656 /* TestViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -520,6 +522,8 @@
 			children = (
 				65C0081E1CABB697002983D6 /* ISSPinAnnotationCallOutView.h */,
 				65C0081F1CABB697002983D6 /* ISSPinAnnotationCallOutView.m */,
+				65FEC8821CBBAB350019D9E5 /* ISSCirclePinAnnotationCallOutView.h */,
+				65FEC8831CBBAB350019D9E5 /* ISSCirclePinAnnotationCallOutView.m */,
 			);
 			name = PopupView;
 			sourceTree = "<group>";
@@ -602,9 +606,7 @@
 				65C007E61CAB6D8F002983D6 /* icon_paopao_middle_left@2x.png in Resources */,
 				65C008081CABAA34002983D6 /* btn_sound_nomal@2x.png in Resources */,
 				65D834811CAA543B0032B6D1 /* Maps in Resources */,
-				65A481D81CAE248900C17A17 /* yugudong.jpg in Resources */,
 				652E8B421C856FE40003C7D9 /* Assets.xcassets in Resources */,
-				6502F1D31CAA24D200CB1512 /* bailixia.jpg in Resources */,
 				65C007E81CAB6D8F002983D6 /* icon_paopao_middle_right@2x.png in Resources */,
 				65C0080A1CABAA34002983D6 /* db_poi_depot@2x.png in Resources */,
 				65C0080D1CABAA34002983D6 /* db_poi_toilet@2x.png in Resources */,
@@ -693,9 +695,11 @@
 				6502F1DA1CAA29E400CB1512 /* FileUtil.m in Sources */,
 				658D4D871CACF81000431778 /* UserLocationModel.m in Sources */,
 				6502F1D11CAA230900CB1512 /* MapLocationItemModel.m in Sources */,
+				65FEC8841CBBAB350019D9E5 /* ISSCirclePinAnnotationCallOutView.m in Sources */,
 				6502F1DD1CAA29F100CB1512 /* SysUtil.m in Sources */,
 				65D8347F1CAA52900032B6D1 /* TileMapViewController.m in Sources */,
 				6502F1CD1CAA22E000CB1512 /* ISSJSONModel.m in Sources */,
+				65A2D7D31CBC8A6900EDF656 /* TestViewController.m in Sources */,
 				65A481DC1CAE456800C17A17 /* MapListViewController.m in Sources */,
 				65C008251CABD4D5002983D6 /* UITool.m in Sources */,
 				65D8347C1CAA52410032B6D1 /* MapViewController.m in Sources */,
