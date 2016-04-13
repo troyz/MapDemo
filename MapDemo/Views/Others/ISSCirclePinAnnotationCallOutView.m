@@ -177,7 +177,7 @@
         if(_i == i || _i + i == MAX_SMALL_CIRCLE - 1)
         {
             POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
-            animation.springSpeed = 2;
+            animation.springSpeed = 16;
             
             UIView *view = [self viewWithTag:_i + 11];
             animation.toValue = [NSValue valueWithCGSize:CGSizeMake(VIEW_W_H / 2.0 - BUTTON_W_H, 1.0)] ;
@@ -187,7 +187,7 @@
             }
             [view.layer pop_addAnimation:animation forKey:@"animation"];
             
-            [UIView animateWithDuration:0.3 animations:^{
+            [UIView animateWithDuration:0.2 animations:^{
                 UIView *view = [self viewWithTag:_i + 1];
                 view.center = [((NSValue *)[frameDict objectForKey:@(view.tag)]) CGPointValue];
             }];
