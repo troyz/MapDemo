@@ -43,6 +43,11 @@
     frameDict = [[NSMutableDictionary alloc] init];
 }
 
+- (CGFloat)getMenuAngle:(NSInteger)i
+{
+    return M_PI * 0.25 * (i - 1);
+}
+
 - (void)initViews
 {
     self.frame = CGRectMake(0, 0, VIEW_W_H, VIEW_W_H);
@@ -64,7 +69,7 @@
     
     for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
     {
-        CGFloat angle = M_PI * 0.25 * (i - 1);
+        CGFloat angle = [self getMenuAngle:i];
         
         UIButton *btnView = [UIButton buttonWithType:UIButtonTypeCustom];
         btnView.tag = (i + 1);
@@ -75,7 +80,6 @@
         btnView.layer.cornerRadius = BUTTON_W_H / 2.0;
         btnView.layer.borderColor = RGBColor(0, 0, 0).CGColor;
         btnView.layer.borderWidth = 1.0;
-//        btnView.frame = CGRectMake(VIEW_W_H - BUTTON_W_H, VIEW_W_H / 2.0 - BUTTON_W_H / 2.0, BUTTON_W_H, BUTTON_W_H);
         btnView.frame = CGRectMake(VIEW_W_H / 2.0 + cos(angle) * C_C_LENGTH - BUTTON_W_H / 2.0, VIEW_W_H / 2.0 + sin(angle) * C_C_LENGTH - BUTTON_W_H / 2.0, BUTTON_W_H, BUTTON_W_H);
         
         [btnView setBackgroundImage:[UITool createImageWithColor:RGBColor(0, 0, 0)] forState:UIControlStateHighlighted];
@@ -86,13 +90,10 @@
         lineView.frame = CGRectMake(VIEW_W_H / 2.0, VIEW_W_H / 2.0, lineImage.size.width, lineImage.size.height);
         lineView.tag = (10 + btnView.tag);
         lineView.transform = [self getTransformWithCenter:lineView.center withPoint:centerView.center withAngle:angle];
-//        CGAffineTransform transform = [self getTransformWithCenter:btnView.center withPoint:centerView.center withAngle:angle];
-//        transform = CGAffineTransformRotate(transform, -angle);
-//        btnView.transform = transform;
         [self addSubview:lineView];
         [self sendSubviewToBack:lineView];
         
-        [frameDict setObject:[NSValue valueWithCGRect:btnView.frame] forKey:@(btnView.tag)];
+        [frameDict setObject:[NSValue valueWithCGPoint:btnView.center] forKey:@(btnView.tag)];
     }
     
     [self bringSubviewToFront:centerView];
@@ -120,14 +121,15 @@
 - (void)showMenuAtPoint:(CGPoint)point
 {
     self.transform = CGAffineTransformIdentity;
+    CGRect frame = self.frame;
+    self.frame = CGRectMake(point.x - VIEW_W_H / 2.0, point.y, frame.size.width, frame.size.height);
+    viewAngle = [self getAngleByPoint:point center:self.superview.center];
     for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
     {
         UIButton *btnView = [self viewWithTag:i + 1];
         btnView.transform = CGAffineTransformIdentity;
+        btnView.transform = CGAffineTransformMakeRotation(-viewAngle);
     }
-    CGRect frame = self.frame;
-    self.frame = CGRectMake(point.x - VIEW_W_H / 2.0, point.y, frame.size.width, frame.size.height);
-    viewAngle = [self getAngleByPoint:point center:self.superview.center];
     self.transform = [self getTransformWithCenter:self.center withPoint:point withAngle:viewAngle];
     self.hidden = NO;
     [self showCenterView];
@@ -187,10 +189,7 @@
             
             [UIView animateWithDuration:0.3 animations:^{
                 UIView *view = [self viewWithTag:_i + 1];
-                view.frame = [((NSValue *)[frameDict objectForKey:@(view.tag)]) CGRectValue];
-            } completion:^(BOOL finished) {
-                UIView *view = [self viewWithTag:_i + 1];
-                view.transform = CGAffineTransformMakeRotation(-viewAngle);
+                view.center = [((NSValue *)[frameDict objectForKey:@(view.tag)]) CGPointValue];
             }];
         }
     }
@@ -207,12 +206,12 @@
         [view.layer pop_addAnimation:animation forKey:@"animation"];
     }
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
         {
             UIView *view = [self viewWithTag:i + 1];
             view.transform = CGAffineTransformIdentity;
-            view.frame = CGRectMake(VIEW_W_H / 2.0 - BUTTON_W_H / 2.0, VIEW_W_H / 2.0 - BUTTON_W_H / 2.0, BUTTON_W_H, BUTTON_W_H);
+            view.center = CGPointMake(VIEW_W_H / 2.0 + (CENTER_W_H / 2.0 - BUTTON_W_H / 2.0) * cos([self getMenuAngle:i]), VIEW_W_H / 2.0 + (CENTER_W_H / 2.0 - BUTTON_W_H / 2.0) * sin([self getMenuAngle:i]));
         }
     } completion:^(BOOL finished) {
         [self hideCenterView];
