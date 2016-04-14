@@ -14,7 +14,7 @@
 
 const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 
-@interface ISSPinAnnotationMapView()<ISSPinAnnotationCallOutViewDelegate>
+@interface ISSPinAnnotationMapView()<ISSPinAnnotationCallOutViewDelegate, ISSCirclePinAnnotationCallOutViewDelegate>
 - (IBAction)showCallOut:(id)sender;
 - (void)hideCallOut;
 @end
@@ -26,8 +26,11 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     [super setupMap];
     
     _calloutView = [[ISSPinAnnotationCallOutView alloc] initOnMapView:self];
+    _circleCalloutView = [[ISSCirclePinAnnotationCallOutView alloc] initOnMapView:self];
     _calloutView.delegate = self;
+    _circleCalloutView.delegate = self;
     [self addSubview:self.calloutView];
+    [self addSubview:_circleCalloutView];
 }
 
 - (void)addAnnotation:(NAAnnotation *)annotation animated:(BOOL)animate
@@ -38,6 +41,7 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
         [annotationView addTarget:self action:@selector(showCallOut:) forControlEvents:UIControlEventTouchDown];
     }
     [self bringSubviewToFront:self.calloutView];
+    [self bringSubviewToFront:self.circleCalloutView];
 }
 
 - (void)selectAnnotation:(NAAnnotation *)annotation animated:(BOOL)animate
@@ -61,7 +65,6 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
         NAPinAnnotationView *annontationView = (NAPinAnnotationView *)sender;
         
         [self bringSubviewToFront:annontationView];
-        [self bringSubviewToFront:self.calloutView];
         
         if ([self.mapViewDelegate respondsToSelector:@selector(mapView:tappedOnAnnotation:)]) {
             [self.mapViewDelegate mapView:self tappedOnAnnotation:annontationView.annotation];
@@ -81,33 +84,36 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 - (void)showCalloutForAnnotation:(NAPinAnnotation *)annotation animated:(BOOL)animated
 {
     NSLog(@"%f, %f", annotation.point.x, annotation.point.y);
-    [self convertPoint:annotation.point toView:self.superview];
     
     [self hideCallOut];
     
-    self.calloutView.annotation = annotation;
-    
-    //    [self centerOnPoint:annotation.point animated:animated];
-    
-//    CGFloat animationDuration = animated ? ISSMapViewAnnotationCalloutAnimationDuration : 0.0f;
-    
-    self.calloutView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1f, 0.1f);
-    self.calloutView.hidden = NO;
-    
-//    __weak typeof(self) weakSelf = self;
-//    [UIView animateWithDuration:animationDuration animations:^{
-//        weakSelf.calloutView.transform = CGAffineTransformIdentity;
-//    }];
-    
-    POPSpringAnimation *scaleAnimatin = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
-    scaleAnimatin.toValue = [NSValue valueWithCGSize:CGSizeMake(1, 1)];
-    scaleAnimatin.springBounciness = 16;
-    [self.calloutView.layer pop_addAnimation:scaleAnimatin forKey:@"scaleAnimatin"];
+    if([annotation isKindOfClass:[ISSPinAnnotation class]] && ((ISSPinAnnotation *)annotation).menuStyle == POP_UP_MENU_STYLE_CIRCLE)
+    {
+        [self bringSubviewToFront:self.circleCalloutView];
+        [self.circleCalloutView showMenuAtPoint:annotation.point];
+    }
+    else
+    {
+        [self bringSubviewToFront:self.calloutView];
+        self.calloutView.annotation = annotation;
+        
+        self.calloutView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1f, 0.1f);
+        self.calloutView.hidden = NO;
+        
+        POPSpringAnimation *scaleAnimatin = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+        scaleAnimatin.toValue = [NSValue valueWithCGSize:CGSizeMake(1, 1)];
+        scaleAnimatin.springBounciness = 16;
+        [self.calloutView.layer pop_addAnimation:scaleAnimatin forKey:@"scaleAnimatin"];
+    }
 }
 
 - (void)hideCallOut
 {
     self.calloutView.hidden = YES;
+    if(!self.circleCalloutView.hidden)
+    {
+        [self.circleCalloutView hideMenu];
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -122,6 +128,7 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 - (void)updatePositions
 {
     [self.calloutView updatePosition];
+    [self.circleCalloutView updatePosition];
     [super updatePositions];
 }
 
@@ -132,4 +139,32 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
         [_mapDelegate playerButtonTapped:annotation];
     }
 }
+
+#pragma mark ISSCirclePinAnnotationCallOutViewDelegate
+- (NSInteger)numbersOfCircleForCallOutView
+{
+    return 2;
+}
+
+- (CGPoint)screenCenterPointForCallOutView
+{
+    CGPoint point = self.contentOffset;
+    point.x += kScreenWidth  / 2.0;
+    point.y += (kScreenHeight - kOffSet) / 2.0;
+    return point;
+}
+
+- (void)circleButton:(UIButton *)btnView atIndex:(NSInteger)i
+{
+
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    if(!self.circleCalloutView.hidden)
+    {
+        [self.circleCalloutView updatePosition];
+    }
+}
+
 @end

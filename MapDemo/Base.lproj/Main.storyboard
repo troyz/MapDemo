@@ -56,10 +56,19 @@
                                     <action selector="buttonTapped:" destination="tz2-kp-RB5" eventType="touchUpInside" id="CMo-vc-hN0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFB-6a-kbN">
+                                <rect key="frame" x="279.5" y="510" width="41" height="30"/>
+                                <state key="normal" title="rotate"/>
+                                <connections>
+                                    <action selector="rotateButtonTapped:" destination="tz2-kp-RB5" eventType="touchUpInside" id="LAr-DD-4Sp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="yHh-bk-O3i" secondAttribute="bottom" constant="20" id="1nW-uI-y8r"/>
+                            <constraint firstItem="JFB-6a-kbN" firstAttribute="centerX" secondItem="jhy-Q6-ZQv" secondAttribute="centerX" id="DBJ-i1-TV8"/>
+                            <constraint firstAttribute="bottom" secondItem="JFB-6a-kbN" secondAttribute="bottom" constant="60" id="cza-rr-ZQF"/>
                             <constraint firstItem="yHh-bk-O3i" firstAttribute="centerX" secondItem="jhy-Q6-ZQv" secondAttribute="centerX" id="nC7-Xi-Azp"/>
                         </constraints>
                     </view>
@@ -78,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="tz2-kp-RB5" kind="relationship" relationship="rootViewController" id="jPo-Di-CZY"/>
+                        <segue destination="tz2-kp-RB5" kind="relationship" relationship="rootViewController" id="xtd-5u-zzo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gjr-4n-OEI" userLabel="First Responder" sceneMemberID="firstResponder"/>

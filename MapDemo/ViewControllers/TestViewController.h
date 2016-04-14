@@ -10,4 +10,5 @@
 
 @interface TestViewController : UIViewController
 - (IBAction)buttonTapped:(id)sender;
+- (IBAction)rotateButtonTapped:(id)sender;
 @end

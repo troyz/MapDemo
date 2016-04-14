@@ -21,19 +21,28 @@
 {
     UIView *centerView;
     NSMutableDictionary *frameDict;
-    CGFloat viewAngle;
+    CGPoint mapAtPoint;
+    CGPoint atPoint;
+    BOOL isHiddening;
 }
 @end
 
 @implementation ISSCirclePinAnnotationCallOutView
 - (instancetype)init
 {
+    return [self initOnMapView:nil];
+}
+- (id)initOnMapView:(NAMapView *)mapView
+{
     self = [super init];
     if(self)
     {
+        self.mapView = mapView;
         [self initVariables];
         [self initViews];
-        [self updateUI];
+        
+        self.hidden = YES;
+        [self hideMenu];
     }
     return self;
 }
@@ -112,28 +121,59 @@
     return trans;
 }
 
-- (void)updateUI
+- (void)updatePosition
 {
-    self.hidden = YES;
-    [self hideMenu];
+    if(self.mapView)
+    {
+        atPoint = [self.mapView zoomRelativePoint:mapAtPoint];
+    }
+    CGFloat angle = [self getAngleByPoint:atPoint center:[self screenCenterPoint]];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.transform = [self getTransformWithCenter:self.center withPoint:atPoint withAngle:angle];
+        for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
+        {
+            UIButton *btnView = [self viewWithTag:i + 1];
+            btnView.transform = CGAffineTransformMakeRotation(-angle);
+        }
+    }];
 }
 
 - (void)showMenuAtPoint:(CGPoint)point
 {
+    mapAtPoint = point;
+    if(self.mapView)
+    {
+        atPoint = [self.mapView zoomRelativePoint:mapAtPoint];
+    }
+    else
+    {
+        atPoint = point;
+    }
     self.transform = CGAffineTransformIdentity;
     CGRect frame = self.frame;
-    self.frame = CGRectMake(point.x - VIEW_W_H / 2.0, point.y, frame.size.width, frame.size.height);
-    viewAngle = [self getAngleByPoint:point center:self.superview.center];
+    self.frame = CGRectMake(atPoint.x - VIEW_W_H / 2.0, atPoint.y, frame.size.width, frame.size.height);
+    
+    CGFloat angle = [self getAngleByPoint:atPoint center:[self screenCenterPoint]];
     for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
     {
         UIButton *btnView = [self viewWithTag:i + 1];
         btnView.transform = CGAffineTransformIdentity;
-        btnView.transform = CGAffineTransformMakeRotation(-viewAngle);
+        btnView.transform = CGAffineTransformMakeRotation(-angle);
     }
-    self.transform = [self getTransformWithCenter:self.center withPoint:point withAngle:viewAngle];
+    self.transform = [self getTransformWithCenter:self.center withPoint:atPoint withAngle:angle];
     self.hidden = NO;
     [self showCenterView];
 }
+
+- (CGPoint)screenCenterPoint
+{
+    if(_delegate && [_delegate respondsToSelector:@selector(screenCenterPointForCallOutView)])
+    {
+        return [_delegate screenCenterPointForCallOutView];
+    }
+    return self.superview.center;
+}
+
 -(CGFloat)getAngleByPoint:(CGPoint)nowPoint center:(CGPoint)center
 {
     if(nowPoint.y == center.y)
@@ -168,7 +208,7 @@
 - (void)showMenu:(NSNumber *)num
 {
     NSInteger i = [num integerValue];
-    if((i + 1) > MAX_SMALL_CIRCLE / 2.0 + 1)
+    if(((i + 1) > (MAX_SMALL_CIRCLE + 1) / 2) || ((i + 1) > (([self menuCount] / 2) + ([self menuCount] % 2 == 0 ? 0 : 1))))
     {
         return;
     }
@@ -176,6 +216,10 @@
     {
         if(_i == i || _i + i == MAX_SMALL_CIRCLE - 1)
         {
+            if([self menuCount] % 2 != 0 && (i + 1) * 2 > [self menuCount] && _i != i)
+            {
+                continue;
+            }
             POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
             animation.springSpeed = 16;
             
@@ -197,6 +241,11 @@
 
 - (void)hideMenu
 {
+    if(isHiddening)
+    {
+        return;
+    }
+    isHiddening = YES;
     for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
     {
         POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
@@ -245,6 +294,7 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.hidden = YES;
+        isHiddening = NO;
     });
 }
 
@@ -283,6 +333,15 @@
         [self viewWithTag:(i + 1)].hidden = !isShow;
         [self viewWithTag:(i + 11)].hidden = !isShow;
     }
+}
+
+- (NSInteger)menuCount
+{
+    if(_delegate && [_delegate respondsToSelector:@selector(numbersOfCircleForCallOutView)])
+    {
+        return [_delegate numbersOfCircleForCallOutView];
+    }
+    return 0;
 }
 
 /*

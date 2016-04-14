@@ -17,10 +17,18 @@ typedef NS_ENUM(NSInteger, ISSTTSPlayerStatus)
     TTS_PLAYER_STATUS_PAUSE         = 2     // 暂停
 };
 
+// 弹出菜单样式
+typedef NS_ENUM(NSInteger, ISSPopupMenuStyle)
+{
+    POP_UP_MENU_STYLE_DEFAULT       = 0,
+    POP_UP_MENU_STYLE_CIRCLE        = 1,    // 圆形
+};
+
 @interface ISSPinAnnotation : NAPinAnnotation
 @property (nonatomic, assign) ISSLocationType locType;
 @property (nonatomic, copy) NSString *imgPath;
 @property (nonatomic, assign) ISSTTSPlayerStatus playerStatus;
+@property (nonatomic, assign) ISSPopupMenuStyle menuStyle;
 - (BOOL)isPlaying;
 - (BOOL)isPaused;
 - (void)play;

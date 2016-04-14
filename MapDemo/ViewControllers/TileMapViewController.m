@@ -124,6 +124,7 @@
 
 - (void)initViews
 {
+    [self addFirstView];
     [self initMapView];
     [self initSoundControlView];
     [self initZoomButtonView];
@@ -132,18 +133,23 @@
 #endif
 }
 
+- (void)addFirstView
+{
+    [self.view addSubview:[[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)]];
+}
+
 - (void)initMapView
 {
     // 瓦片地图
     if([mapItem hasTiles])
     {
-        mapView = [[ISSTiledImageMapView alloc] initWithFrame:self.view.bounds tiledImageDataSource:dataSource];
+        mapView = [[ISSTiledImageMapView alloc] initWithFrame:CGRectMake(0, kOffSet, kScreenWidth, kScreenHeight - kOffSet) tiledImageDataSource:dataSource];
         mapView.maximumZoomScale = (mapView.maximumZoomScale > 2.5f ? mapView.maximumZoomScale : 2.5f);
     }
     // 本地地图
     else
     {
-        mapView = [[ISSPinAnnotationMapView alloc] initWithFrame:self.view.bounds];
+        mapView = [[ISSPinAnnotationMapView alloc] initWithFrame:CGRectMake(0, kOffSet, kScreenWidth, kScreenHeight - kOffSet)];
         mapView.minimumZoomScale = 0.1f;
         mapView.maximumZoomScale = 2.5f;
         
@@ -165,6 +171,7 @@
         MapLocationItemModel *locItem = mapItem.locationList[i];
         ISSPinAnnotation *melbourne = [ISSPinAnnotation annotationWithPoint:[self locationCoordToCgPoint:CLLocationCoordinate2DMake(locItem.lat, locItem.lng)]];
         melbourne.title = locItem.name;
+        melbourne.menuStyle = POP_UP_MENU_STYLE_CIRCLE;
         [mapView addAnnotation:melbourne animated:YES];
         [pinList addObject:melbourne];
     }

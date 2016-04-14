@@ -9,9 +9,11 @@
 #import "TestViewController.h"
 #import "ISSCirclePinAnnotationCallOutView.h"
 
-@interface TestViewController ()
+@interface TestViewController ()<ISSCirclePinAnnotationCallOutViewDelegate>
 {
     ISSCirclePinAnnotationCallOutView *outView;
+    NSInteger i;
+    UIView *view;
 }
 @end
 
@@ -21,8 +23,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    i = 0;
     
     outView = [[ISSCirclePinAnnotationCallOutView alloc] init];
+    outView.delegate = self;
     CGRect frame = outView.frame;
     frame.origin.x = 50;
     frame.origin.y = 100;
@@ -36,6 +40,16 @@
     tapGestureRecognizer.numberOfTouchesRequired = 1;
     
     [self.view addGestureRecognizer:tapGestureRecognizer];
+    
+    view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    view.layer.anchorPoint = CGPointMake(0.5, 0);
+    view.backgroundColor = [UIColor orangeColor];
+    view.layer.position = CGPointMake(150, 100);
+    [self.view addSubview:view];
+    
+    UIView *pView = [[UIView alloc] initWithFrame:CGRectMake(150, 100, 2, 2)];
+    pView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:pView];
 }
 
 -(void)handleTapGesture:(UIGestureRecognizer*)gestureRecognizer
@@ -61,6 +75,22 @@
 
 - (IBAction)buttonTapped:(id)sender
 {
+    i++;
     [outView hideMenu];
+}
+
+- (IBAction)rotateButtonTapped:(id)sender
+{
+    view.transform = CGAffineTransformRotate(view.transform, M_PI_4);
+}
+
+- (NSInteger)numbersOfCircleForCallOutView
+{
+    return i % 8;
+}
+
+- (void)circleButton:(UIButton *)btnView atIndex:(NSInteger)i
+{
+    
 }
 @end
