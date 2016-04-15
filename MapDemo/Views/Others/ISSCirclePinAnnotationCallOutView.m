@@ -42,7 +42,7 @@
         [self initViews];
         
         self.hidden = YES;
-        [self hideMenu];
+        [self hideMenu:NO];
     }
     return self;
 }
@@ -60,6 +60,7 @@
 - (void)initViews
 {
     self.frame = CGRectMake(0, 0, VIEW_W_H, VIEW_W_H);
+    self.layer.anchorPoint = CGPointMake(0.5, 0);
     
     centerView = [[UIView alloc] init];
     centerView.backgroundColor = [UIColor orangeColor];
@@ -126,10 +127,12 @@
     if(self.mapView)
     {
         atPoint = [self.mapView zoomRelativePoint:mapAtPoint];
+        atPoint.y -= 35;
     }
+    self.layer.position = atPoint;
     CGFloat angle = [self getAngleByPoint:atPoint center:[self screenCenterPoint]];
     [UIView animateWithDuration:0.3 animations:^{
-        self.transform = [self getTransformWithCenter:self.center withPoint:atPoint withAngle:angle];
+        self.transform = CGAffineTransformMakeRotation(angle);//[self getTransformWithCenter:self.center withPoint:atPoint withAngle:angle];
         for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
         {
             UIButton *btnView = [self viewWithTag:i + 1];
@@ -144,14 +147,16 @@
     if(self.mapView)
     {
         atPoint = [self.mapView zoomRelativePoint:mapAtPoint];
+        atPoint.y -= 35;
     }
     else
     {
         atPoint = point;
     }
-    self.transform = CGAffineTransformIdentity;
-    CGRect frame = self.frame;
-    self.frame = CGRectMake(atPoint.x - VIEW_W_H / 2.0, atPoint.y, frame.size.width, frame.size.height);
+    self.layer.position = atPoint;
+//    self.transform = CGAffineTransformIdentity;
+//    CGRect frame = self.frame;
+//    self.frame = CGRectMake(atPoint.x - VIEW_W_H / 2.0, atPoint.y, frame.size.width, frame.size.height);
     
     CGFloat angle = [self getAngleByPoint:atPoint center:[self screenCenterPoint]];
     for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
@@ -160,7 +165,7 @@
         btnView.transform = CGAffineTransformIdentity;
         btnView.transform = CGAffineTransformMakeRotation(-angle);
     }
-    self.transform = [self getTransformWithCenter:self.center withPoint:atPoint withAngle:angle];
+    self.transform = CGAffineTransformMakeRotation(angle);//[self getTransformWithCenter:self.center withPoint:atPoint withAngle:angle];
     self.hidden = NO;
     [self showCenterView];
 }
@@ -221,7 +226,7 @@
                 continue;
             }
             POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
-            animation.springSpeed = 16;
+            animation.springSpeed = 8;
             
             UIView *view = [self viewWithTag:_i + 11];
             animation.toValue = [NSValue valueWithCGSize:CGSizeMake(VIEW_W_H / 2.0 - BUTTON_W_H, 1.0)] ;
@@ -231,7 +236,7 @@
             }
             [view.layer pop_addAnimation:animation forKey:@"animation"];
             
-            [UIView animateWithDuration:0.2 animations:^{
+            [UIView animateWithDuration:0.25 animations:^{
                 UIView *view = [self viewWithTag:_i + 1];
                 view.center = [((NSValue *)[frameDict objectForKey:@(view.tag)]) CGPointValue];
             }];
@@ -239,7 +244,24 @@
     }
 }
 
-- (void)hideMenu
+- (void)hideMenu:(BOOL)animated
+{
+    if(animated)
+    {
+        [self hideMenuWithAnimate];
+    }
+    else
+    {
+        [self hideMenuImediately];
+    }
+}
+
+- (void)hideMenuImediately
+{
+    [self hideMenuWithAnimate];
+}
+
+- (void)hideMenuWithAnimate
 {
     if(isHiddening)
     {

@@ -76,7 +76,7 @@
 - (IBAction)buttonTapped:(id)sender
 {
     i++;
-    [outView hideMenu];
+    [outView hideMenu:YES];
 }
 
 - (IBAction)rotateButtonTapped:(id)sender

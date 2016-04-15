@@ -46,7 +46,7 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 
 - (void)selectAnnotation:(NAAnnotation *)annotation animated:(BOOL)animate
 {
-    [self hideCallOut];
+//    [self hideCallOut];
     if([annotation isKindOfClass:NAPinAnnotation.class]) {
         [self showCalloutForAnnotation:(NAPinAnnotation *)annotation animated:animate];
     }
@@ -85,7 +85,14 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 {
     NSLog(@"%f, %f", annotation.point.x, annotation.point.y);
     
-    [self hideCallOut];
+    if(!self.circleCalloutView.hidden)
+    {
+        [self.circleCalloutView hideMenu:NO];
+    }
+    else
+    {
+        [self hideCallOut];
+    }
     
     if([annotation isKindOfClass:[ISSPinAnnotation class]] && ((ISSPinAnnotation *)annotation).menuStyle == POP_UP_MENU_STYLE_CIRCLE)
     {
@@ -112,7 +119,7 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     self.calloutView.hidden = YES;
     if(!self.circleCalloutView.hidden)
     {
-        [self.circleCalloutView hideMenu];
+        [self.circleCalloutView hideMenu:YES];
     }
 }
 
@@ -167,4 +174,28 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if(!self.circleCalloutView.hidden)
+    {
+        [self.circleCalloutView updatePosition];
+    }
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if(!self.circleCalloutView.hidden)
+    {
+        [self.circleCalloutView updatePosition];
+    }
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    [super scrollViewDidZoom:scrollView];
+    if(!self.circleCalloutView.hidden)
+    {
+        [self.circleCalloutView updatePosition];
+    }
+}
 @end

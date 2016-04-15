@@ -20,7 +20,7 @@
 @interface ISSCirclePinAnnotationCallOutView : UIView
 - (id)initOnMapView:(NAMapView *)mapView;
 - (void)showMenuAtPoint:(CGPoint)point;
-- (void)hideMenu;
+- (void)hideMenu:(BOOL)animated;
 - (void)updatePosition;
 @property (nonatomic, weak)   NAMapView *mapView;
 @property (nonatomic, weak) id<ISSCirclePinAnnotationCallOutViewDelegate> delegate;
