@@ -10,7 +10,9 @@
 #import "ISSPinAnnotation.h"
 
 @interface ISSSubCirclePinAnnotationCallOutView()<ISSCirclePinAnnotationCallOutViewDelegate>
-
+{
+    
+}
 @end
 
 @implementation ISSSubCirclePinAnnotationCallOutView

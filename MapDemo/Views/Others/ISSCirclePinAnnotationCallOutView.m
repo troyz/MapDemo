@@ -148,6 +148,7 @@
 
 - (void)showMenuAtPoint:(CGPoint)point
 {
+    isHiddening = NO;
     mapAtPoint = point;
     if(self.mapView)
     {
@@ -159,9 +160,6 @@
         atPoint = point;
     }
     self.layer.position = atPoint;
-//    self.transform = CGAffineTransformIdentity;
-//    CGRect frame = self.frame;
-//    self.frame = CGRectMake(atPoint.x - VIEW_W_H / 2.0, atPoint.y, frame.size.width, frame.size.height);
     
     CGFloat angle = [self getAngleByPoint:atPoint center:[self screenCenterPoint]];
     for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
@@ -314,7 +312,10 @@
             view.center = CGPointMake(VIEW_W_H / 2.0 + (CENTER_W_H / 2.0 - BUTTON_W_H / 2.0) * cos([self getMenuAngle:i]), VIEW_W_H / 2.0 + (CENTER_W_H / 2.0 - BUTTON_W_H / 2.0) * sin([self getMenuAngle:i]));
         }
     } completion:^(BOOL finished) {
-        [self hideCenterView];
+        if(isHiddening)
+        {
+            [self hideCenterView];
+        }
     }];
 }
 

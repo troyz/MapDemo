@@ -23,6 +23,8 @@
                 |
  
                 b6
+ 
+    TODO: 这里有一个bug，因为hideMenu时有动画，如果动画没有结束，就调用showMenuAtPoint会存在bug，后期可以用GCD解决，让showMenuAtPoint等待hideMenu动画执行结束。
  */
 #import <UIKit/UIKit.h>
 #import "NAMapView.h"
