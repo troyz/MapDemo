@@ -54,6 +54,7 @@
     [self showMenuAtPoint:annotation.point];
     [self updatePosition];
     [self updatePlayButtonText];
+    [self setTitle:annotation.title];
 }
 
 - (void)updatePlayButtonText

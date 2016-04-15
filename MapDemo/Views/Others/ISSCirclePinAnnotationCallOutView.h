@@ -39,6 +39,7 @@
 - (void)showMenuAtPoint:(CGPoint)point;
 - (void)hideMenu:(BOOL)animated;
 - (void)updatePosition;
+- (void)setTitle:(NSString *)title;
 
 // 右0，左1，右2，左3，右4，左5，下6
 - (UIButton *)menuAtIndex:(NSInteger)index;

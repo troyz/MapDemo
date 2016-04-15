@@ -19,7 +19,7 @@
 
 @interface ISSCirclePinAnnotationCallOutView()
 {
-    UIView *centerView;
+    UILabel *centerView;
     NSMutableDictionary *frameDict;
     CGPoint mapAtPoint;
     CGPoint atPoint;
@@ -62,7 +62,11 @@
     self.frame = CGRectMake(0, 0, VIEW_W_H, VIEW_W_H);
     self.layer.anchorPoint = CGPointMake(0.5, 0);
     
-    centerView = [[UIView alloc] init];
+    centerView = [[UILabel alloc] init];
+    centerView.font = [UIFont boldSystemFontOfSize:14];
+    centerView.numberOfLines = 0;
+    centerView.textAlignment = NSTextAlignmentCenter;
+    centerView.textColor = [UIColor orangeColor];
     centerView.backgroundColor = [UIColor whiteColor];
     centerView.frame = CGRectMake((VIEW_W_H - CENTER_W_H) / 2.0, (VIEW_W_H - CENTER_W_H) / 2.0, CENTER_W_H, CENTER_W_H);
     centerView.clipsToBounds = YES;
@@ -133,6 +137,7 @@
     CGFloat angle = [self getAngleByPoint:atPoint center:[self screenCenterPoint]];
     [UIView animateWithDuration:0.3 animations:^{
         self.transform = CGAffineTransformMakeRotation(angle);//[self getTransformWithCenter:self.center withPoint:atPoint withAngle:angle];
+        centerView.transform = CGAffineTransformMakeRotation(-angle);
         for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
         {
             UIButton *btnView = [self viewWithTag:i + 1];
@@ -166,6 +171,7 @@
         btnView.transform = CGAffineTransformMakeRotation(-angle);
     }
     self.transform = CGAffineTransformMakeRotation(angle);//[self getTransformWithCenter:self.center withPoint:atPoint withAngle:angle];
+    centerView.transform = CGAffineTransformMakeRotation(-angle);
     self.hidden = NO;
     [self showCenterView];
 }
@@ -432,6 +438,11 @@
         }
     }
     return isInside;
+}
+
+- (void)setTitle:(NSString *)title
+{
+    centerView.text = title;
 }
 
 /*
