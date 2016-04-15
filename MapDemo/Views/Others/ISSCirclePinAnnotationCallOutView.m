@@ -24,6 +24,7 @@
     CGPoint mapAtPoint;
     CGPoint atPoint;
     BOOL isHiddening;
+    dispatch_group_t animateGroup;
 }
 @end
 
@@ -37,6 +38,8 @@
     self = [super init];
     if(self)
     {
+        animateGroup = dispatch_group_create();
+        
         self.mapView = mapView;
         [self initVariables];
         [self initViews];
@@ -148,30 +151,33 @@
 
 - (void)showMenuAtPoint:(CGPoint)point
 {
-    isHiddening = NO;
-    mapAtPoint = point;
-    if(self.mapView)
-    {
-        atPoint = [self.mapView zoomRelativePoint:mapAtPoint];
-        atPoint.y -= 35;
-    }
-    else
-    {
-        atPoint = point;
-    }
-    self.layer.position = atPoint;
-    
-    CGFloat angle = [self getAngleByPoint:atPoint center:[self screenCenterPoint]];
-    for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
-    {
-        UIButton *btnView = [self viewWithTag:i + 1];
-        btnView.transform = CGAffineTransformIdentity;
-        btnView.transform = CGAffineTransformMakeRotation(-angle);
-    }
-    self.transform = CGAffineTransformMakeRotation(angle);//[self getTransformWithCenter:self.center withPoint:atPoint withAngle:angle];
-    centerView.transform = CGAffineTransformMakeRotation(-angle);
-    self.hidden = NO;
-    [self showCenterView];
+    // 有可能当前hideMenu正在执行，需要等待hideMenu执行完毕后，才可执行show
+    dispatch_group_notify(animateGroup, dispatch_get_main_queue(), ^{
+        isHiddening = NO;
+        mapAtPoint = point;
+        if(self.mapView)
+        {
+            atPoint = [self.mapView zoomRelativePoint:mapAtPoint];
+            atPoint.y -= 35;
+        }
+        else
+        {
+            atPoint = point;
+        }
+        self.layer.position = atPoint;
+        
+        CGFloat angle = [self getAngleByPoint:atPoint center:[self screenCenterPoint]];
+        for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
+        {
+            UIButton *btnView = [self viewWithTag:i + 1];
+            btnView.transform = CGAffineTransformIdentity;
+            btnView.transform = CGAffineTransformMakeRotation(-angle);
+        }
+        self.transform = CGAffineTransformMakeRotation(angle);//[self getTransformWithCenter:self.center withPoint:atPoint withAngle:angle];
+        centerView.transform = CGAffineTransformMakeRotation(-angle);
+        self.hidden = NO;
+        [self showCenterView];
+    });
 }
 
 - (CGPoint)screenCenterPoint
@@ -294,6 +300,7 @@
     {
         return;
     }
+    dispatch_group_enter(animateGroup);
     isHiddening = YES;
     for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
     {
@@ -346,6 +353,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.hidden = YES;
         isHiddening = NO;
+        dispatch_group_leave(animateGroup);
     });
 }
 
