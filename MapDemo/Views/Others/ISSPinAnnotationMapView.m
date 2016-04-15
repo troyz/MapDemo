@@ -14,7 +14,7 @@
 
 const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 
-@interface ISSPinAnnotationMapView()<ISSPinAnnotationCallOutViewDelegate, ISSCirclePinAnnotationCallOutViewDelegate>
+@interface ISSPinAnnotationMapView()<ISSPinAnnotationCallOutViewDelegate>
 - (IBAction)showCallOut:(id)sender;
 - (void)hideCallOut;
 @end
@@ -26,9 +26,9 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     [super setupMap];
     
     _calloutView = [[ISSPinAnnotationCallOutView alloc] initOnMapView:self];
-    _circleCalloutView = [[ISSCirclePinAnnotationCallOutView alloc] initOnMapView:self];
+    _circleCalloutView = [[ISSSubCirclePinAnnotationCallOutView alloc] initOnMapView:self];
     _calloutView.delegate = self;
-    _circleCalloutView.delegate = self;
+    _circleCalloutView.callOutDelegate = self;
     [self addSubview:self.calloutView];
     [self addSubview:_circleCalloutView];
 }
@@ -97,7 +97,8 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     if([annotation isKindOfClass:[ISSPinAnnotation class]] && ((ISSPinAnnotation *)annotation).menuStyle == POP_UP_MENU_STYLE_CIRCLE)
     {
         [self bringSubviewToFront:self.circleCalloutView];
-        [self.circleCalloutView showMenuAtPoint:annotation.point];
+//        [self.circleCalloutView showMenuAtPoint:annotation.point];
+        self.circleCalloutView.annotation = annotation;
     }
     else
     {
@@ -121,6 +122,12 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     {
         [self.circleCalloutView hideMenu:YES];
     }
+}
+
+- (void)updatePlayButtonText
+{
+    [self.calloutView updatePlayButtonText];
+    [self.circleCalloutView updatePlayButtonText];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -147,31 +154,13 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     }
 }
 
-#pragma mark ISSCirclePinAnnotationCallOutViewDelegate
-- (NSInteger)numbersOfCircleForCallOutView
-{
-    return 2;
-}
-
-- (CGPoint)screenCenterPointForCallOutView
-{
-    CGPoint point = self.contentOffset;
-    point.x += self.bounds.size.width  / 2.0;
-    point.y += self.bounds.size.height / 2.0;
-    return point;
-}
-
-- (void)circleButton:(UIButton *)btnView atIndex:(NSInteger)i
-{
-
-}
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if(!self.circleCalloutView.hidden)
     {
         [self.circleCalloutView updatePosition];
     }
+    [self checkAnnotationViewVisible];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -180,6 +169,7 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     {
         [self.circleCalloutView updatePosition];
     }
+    [self checkAnnotationViewVisible];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -188,6 +178,7 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     {
         [self.circleCalloutView updatePosition];
     }
+    [self checkAnnotationViewVisible];
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
@@ -196,6 +187,22 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
     if(!self.circleCalloutView.hidden)
     {
         [self.circleCalloutView updatePosition];
+    }
+    [self checkAnnotationViewVisible];
+}
+
+- (void)checkAnnotationViewVisible
+{
+    if(_circleCalloutView.hidden && _calloutView.hidden)
+    {
+        return;
+    }
+    UIView *view = _circleCalloutView.hidden ? _calloutView.annotation.view : _circleCalloutView.annotation.view;
+    CGRect screenBounds = [UIScreen mainScreen].bounds;
+    CGRect viewBounds = [view convertRect:view.bounds toView:nil];
+    if(!CGRectIntersectsRect(viewBounds, screenBounds))
+    {
+        [self hideCallOut];
     }
 }
 @end

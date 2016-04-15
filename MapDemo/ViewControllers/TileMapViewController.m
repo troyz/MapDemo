@@ -368,7 +368,7 @@
         if([pinAnnotation isPlaying])
         {
             [pinAnnotation stop];
-            [mapView.calloutView updatePlayButtonText];
+            [mapView updatePlayButtonText];
         }
     }
 }

@@ -8,11 +8,7 @@
 
 #import "NAPinAnnotation.h"
 #import "NAMapView.h"
-
-@protocol ISSPinAnnotationCallOutViewDelegate <NSObject>
-@optional
-- (void)playerButtonTapped:(NAPinAnnotation *)annotation;
-@end
+#import "ISSPinAnnotationCallOutViewDelegate.h"
 
 @interface ISSPinAnnotationCallOutView : UIView
 /// Create a new callout view on a map.

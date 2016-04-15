@@ -63,13 +63,13 @@
     self.layer.anchorPoint = CGPointMake(0.5, 0);
     
     centerView = [[UIView alloc] init];
-    centerView.backgroundColor = [UIColor orangeColor];
+    centerView.backgroundColor = [UIColor whiteColor];
     centerView.frame = CGRectMake((VIEW_W_H - CENTER_W_H) / 2.0, (VIEW_W_H - CENTER_W_H) / 2.0, CENTER_W_H, CENTER_W_H);
     centerView.clipsToBounds = YES;
     centerView.layer.cornerRadius = CENTER_W_H / 2.0;
     [self addSubview:centerView];
     
-    UIImage *lineImage = [UITool createImageWithColor:[UIColor blackColor] withFrame:CGRectMake(0, 0, VIEW_W_H / 2.0 - BUTTON_W_H, 1)];
+    UIImage *lineImage = [UITool createImageWithColor:[UIColor whiteColor] withFrame:CGRectMake(0, 0, VIEW_W_H / 2.0 - BUTTON_W_H, 1)];
     
     UIImageView *lineView = [[UIImageView alloc] initWithImage:lineImage];
     lineView.frame = CGRectMake(VIEW_W_H / 2.0, 0, lineImage.size.height, VIEW_W_H / 2.0);
@@ -84,15 +84,15 @@
         UIButton *btnView = [UIButton buttonWithType:UIButtonTypeCustom];
         btnView.tag = (i + 1);
         [btnView setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-        btnView.titleLabel.font = [UIFont systemFontOfSize:14.0];
+        btnView.titleLabel.font = [UIFont systemFontOfSize:12.0];
         [btnView setTitle:[NSString stringWithFormat:@"b%zd", (i + 1)] forState:UIControlStateNormal];
         btnView.clipsToBounds = YES;
         btnView.layer.cornerRadius = BUTTON_W_H / 2.0;
-        btnView.layer.borderColor = RGBColor(0, 0, 0).CGColor;
-        btnView.layer.borderWidth = 1.0;
+//        btnView.layer.borderColor = RGBColor(0, 0, 0).CGColor;
+//        btnView.layer.borderWidth = 1.0;
         btnView.frame = CGRectMake(VIEW_W_H / 2.0 + cos(angle) * C_C_LENGTH - BUTTON_W_H / 2.0, VIEW_W_H / 2.0 + sin(angle) * C_C_LENGTH - BUTTON_W_H / 2.0, BUTTON_W_H, BUTTON_W_H);
-        
-        [btnView setBackgroundImage:[UITool createImageWithColor:RGBColor(0, 0, 0)] forState:UIControlStateHighlighted];
+        [btnView setBackgroundColor:[UIColor whiteColor]];
+        [btnView setBackgroundImage:[UITool createImageWithColor:[UIColor orangeColor]] forState:UIControlStateHighlighted];
         [btnView setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         [self addSubview:btnView];
         
@@ -258,7 +258,30 @@
 
 - (void)hideMenuImediately
 {
-    [self hideMenuWithAnimate];
+    self.hidden = YES;
+    isHiddening = NO;
+    for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
+    {
+        UIView *view = [self viewWithTag:i + 11];
+        view.bounds = CGRectMake(view.bounds.origin.x, view.bounds.origin.y, CENTER_W_H / 2.0 - BUTTON_W_H, 1.0);
+    }
+    for(NSInteger i = 0; i < MAX_SMALL_CIRCLE; i++)
+    {
+        UIView *view = [self viewWithTag:i + 1];
+        view.transform = CGAffineTransformIdentity;
+        view.center = CGPointMake(VIEW_W_H / 2.0 + (CENTER_W_H / 2.0 - BUTTON_W_H / 2.0) * cos([self getMenuAngle:i]), VIEW_W_H / 2.0 + (CENTER_W_H / 2.0 - BUTTON_W_H / 2.0) * sin([self getMenuAngle:i]));
+    }
+    [self toggleShowSmallCircle:NO];
+    UIView *topLineView = [self viewWithTag:10];
+    topLineView.bounds = CGRectMake(VIEW_W_H / 2.0, 0, 0, 0);
+    topLineView.layer.position = CGPointMake(VIEW_W_H / 2.0, 0);
+
+    centerView.layer.position = CGPointMake(VIEW_W_H / 2.0, 0);
+    // TODO: How to scale view WITHOUT animation?????
+    POPBasicAnimation *scaleAnimation = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleAnimation.duration = 0;
+    scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeZero];
+    [centerView.layer pop_addAnimation:scaleAnimation forKey:@"scaleAnimation"];
 }
 
 - (void)hideMenuWithAnimate
@@ -307,7 +330,6 @@
     
     POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
     scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeZero];
-    
     positionAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPosition];
     positionAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(VIEW_W_H / 2.0, 0)];
     
@@ -325,7 +347,7 @@
     UIView *topLineView = [self viewWithTag:10];
     
     POPSpringAnimation *sizeAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
-    sizeAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(topLineView.frame.size.width, VIEW_W_H / 2.0)];
+    sizeAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0, VIEW_W_H / 2.0)];
     
     POPSpringAnimation *positionAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPosition];
     positionAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(VIEW_W_H / 2.0, VIEW_W_H / 4.0)];
@@ -334,6 +356,8 @@
     [topLineView.layer pop_addAnimation:positionAnimation forKey:@"positionAnimation"];
     
     POPSpringAnimation *scaleAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerScaleXY];
+    scaleAnimation.springBounciness = 8;
+    scaleAnimation.springSpeed = 8;
     scaleAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(1.0, 1.0)];
     
     positionAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPosition];
@@ -364,6 +388,50 @@
         return [_delegate numbersOfCircleForCallOutView];
     }
     return 0;
+}
+
+- (UIButton *)menuAtIndex:(NSInteger)index
+{
+    if(index >= MAX_SMALL_CIRCLE)
+    {
+        return nil;
+    }
+    NSInteger tag = (index % 2 == 0) ? (index / 2 + 1) : (MAX_SMALL_CIRCLE + 1 - ((index - 1) / 2 + 1));
+    UIView *view = [self viewWithTag:tag];
+    return [view isKindOfClass:[UIButton class]] ? (UIButton *)view : nil;
+}
+
+/**
+ * 判断点击区域是否属于当前view
+ */
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
+{
+    BOOL isInside = [super pointInside:point withEvent:event];
+    if(isInside)
+    {
+        isInside = NO;
+        for(NSInteger i = 0; i < [self menuCount]; i++)
+        {
+            UIButton *btnView = [self menuAtIndex:i];
+            CGPoint center = btnView.center;
+            CGFloat xOffset = center.x - point.x;
+            CGFloat yOffset = center.y - point.y;
+            if(sqrt(xOffset * xOffset + yOffset * yOffset) < BUTTON_W_H / 2.0)
+            {
+                NSLog(@"menu button tapped");
+                return YES;
+            }
+        }
+        CGPoint center = centerView.center;
+        CGFloat xOffset = center.x - point.x;
+        CGFloat yOffset = center.y - point.y;
+        if(sqrt(xOffset * xOffset + yOffset * yOffset) < CENTER_W_H / 2.0)
+        {
+            NSLog(@"center view tapped");
+            return YES;
+        }
+    }
+    return isInside;
 }
 
 /*
