@@ -156,8 +156,8 @@ const CGFloat ISSMapViewAnnotationCalloutAnimationDuration = 0.1f;
 - (CGPoint)screenCenterPointForCallOutView
 {
     CGPoint point = self.contentOffset;
-    point.x += kScreenWidth  / 2.0;
-    point.y += (kScreenHeight - kOffSet) / 2.0;
+    point.x += self.bounds.size.width  / 2.0;
+    point.y += self.bounds.size.height / 2.0;
     return point;
 }
 
