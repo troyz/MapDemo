@@ -175,6 +175,12 @@
         [mapView addAnnotation:melbourne animated:YES];
         [pinList addObject:melbourne];
     }
+#ifdef IS_MOCK_NAVIGATION
+    CLLocationCoordinate2D coor = [self cgPointToLocationCoord:CGPointZero];
+    NSLog(@"左上角，lat: %f, lng: %f", coor.latitude, coor.longitude);
+    coor = [self cgPointToLocationCoord:CGPointMake(mapItem.originalImageWidth, mapItem.originalImageHeight)];
+    NSLog(@"右下角，lat: %f, lng: %f", coor.latitude, coor.longitude);
+#endif
 }
 
 #pragma mark 控制是否自动播报声音
@@ -487,6 +493,10 @@
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(mockButtonTapped) object:nil];
     
     [mapView hideCallOut];
+    if(!mockLocList.count)
+    {
+        return;
+    }
     mockIndex = (mockIndex + 1) % mockLocList.count;
     UserLocationModel *mockItem = [mockLocList objectAtIndex:mockIndex];
     UserLocationModel *userLocItem = [UserLocationModel get];

@@ -145,5 +145,20 @@
    "desc": "妮妮超市"
    }
    ]
+  },
+  {
+  "imgName": "",
+  "scenicName": "百里峡漂流",
+  "topLeftLat": 39.707722,
+  "topLeftLng": 115.365806,
+  "zoomRate": 1,
+  "minTileLevel": 9,
+  "maxTileLevel": 11,
+  "originalImageWidth": 1698,
+  "originalImageHeight": 1955,
+  "tileImageFolder": "/Maps/bailixiapiaoliu",
+  "locationList":
+  [
+   ]
   }
   ]
